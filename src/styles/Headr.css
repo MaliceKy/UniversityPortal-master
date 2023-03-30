@@ -1,8 +1,18 @@
 .header {
-    padding: 60px;
-    text-align: left;
-    background: #023020;
-    color: white;
-    font-size: 30px;
-    font-family: "Copperplate", Papyrus, fantasy;
-  }
+  /* Add display: flex; to make the header a flex container */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  text-align: left;
+  background: #023020;
+  color: white;
+  font-size: 30px;
+  font-family: "Copperplate", Papyrus, fantasy;
+}
+
+/* Add some CSS for the logo */
+.logo {
+  height: 100px; /* Adjust the height as needed */
+  width: auto;
+}
