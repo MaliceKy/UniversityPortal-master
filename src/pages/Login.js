@@ -5,24 +5,29 @@ import Headr from "../components/Headr.js";
 import Footr from "../components/Footr.js";
 import "../styles/Login.css";
 
+
 import Data from '../data/login.json';
 
 function LogPage({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = Data.find(user => user.email === email && user.pass === pass);
+  
 
     if (user) {
       onLoginSuccess();
     } else {
-      console.log('Invalid email or password');
-    }
+
+      setErrorMsg('You entered an invalid email or password, please try again!');
+    } 
   }
 
-  // Return the JSX structure of the component
+
+
   return (
     <div className='Page'>
       <div className="head">
@@ -34,11 +39,19 @@ function LogPage({ onLoginSuccess }) {
         <label htmlFor="password">Password</label>
         <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Enter Password" id="password" name="password" />
         <button type="submit" id="submit">Log In</button>
+        <ErrorMsg errorMsg={errorMsg} />
       </form>
-
       <div className="foot">
         <Footr />
       </div>
+    </div>
+  );
+}
+
+function ErrorMsg({ errorMsg, shouldShake }) {
+  return (
+    <div className={`error-msg ${shouldShake ? 'shake' : ''}`}>
+      {errorMsg && <p>{errorMsg}</p>}
     </div>
   );
 }

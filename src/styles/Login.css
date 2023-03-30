@@ -1,6 +1,6 @@
 form {
   margin: auto;
-  margin-top: 10%;
+  margin-top: 5%;
   width: 50%;
   border: 1px solid green;
   padding: 50px;
@@ -42,5 +42,21 @@ label:after { content: ": " }
   font: inherit;
   margin-top: 2%; 
   color: white;
+  
 }
+
+.error-msg {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 2px;
+  margin: 15px 0;
+  border-radius: 15px;
+  animation: shake 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+
+
 
