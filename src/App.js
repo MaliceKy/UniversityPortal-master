@@ -1,7 +1,7 @@
 // this is our login page 
 import './App.css';
 
-import LogPage from "./Login";
+import LogPage from "./pages/Login";
 
 
 //this is where everything is displayed so we call other classes -- basically a main

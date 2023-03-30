@@ -4,9 +4,12 @@ import "../styles/Footr.css";
 function Footr() {
   return (
     <div className='footer'>
-        <div className='left'>Phone:123-456-7890 
-        Email: example@Wizard.com 
-        Location: 123 Random Lane Los Angelos California 12456</div>
+        <div className='left'>
+            <b>Contact us: </b>
+            Phone:123-456-7890 
+            Email: example@Wizard.com 
+            Location: 123 Random Lane Los Angelos California 12456
+        </div>
     </div>
   )
 }
