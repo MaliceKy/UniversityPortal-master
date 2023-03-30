@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './styles/App.css';
 
 import LogPage from "./pages/Login.js";
 import School from './pages/School.js';

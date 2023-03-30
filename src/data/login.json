@@ -2,5 +2,13 @@
     {
         "email": "Kyle@HogUni.com",
         "pass": "Kyle123"
+    },
+    {
+        "email": "Jamie@HogUni.com",
+        "pass": "Jamie123"
+    },
+    {
+        "email": "Prince@HogUni.com",
+        "pass": "Prince123"
     }
 ]
