@@ -3,7 +3,8 @@ import Headr from "./components/Headr.js";
 import Footr from "./components/Footr.js";
 import "./styles/Login.css";
 
-//email or username???? What r the requirments? 
+/*email or username???? What r the requirments? if u want to 
+change colors or anything u can just making an outline*/
 function LogPage() {
     return (
       <div className='Page' >

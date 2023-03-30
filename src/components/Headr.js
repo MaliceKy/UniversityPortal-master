@@ -5,7 +5,7 @@ import "../styles/Headr.css";
 //footer, header, signout ect
 function headerNav() {
   return (
-    <div className='header'>Welcome to Hogwarts University </div>
+    <div className='header'>Welcome to Hogwarts University</div>
   )
 }
 

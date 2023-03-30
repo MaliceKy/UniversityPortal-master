@@ -1,0 +1,45 @@
+.box {
+  margin: auto;
+  margin-top: 10%;
+  width: 50%;
+  border: 1px solid green;
+  padding: 50px;
+  border-radius: 25px;
+  text-align: left; 
+
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: block;
+}
+label:after { content: ": " }
+
+
+
+#button:focus {
+  outline: 2px solid gray;
+  font-weight: bold;
+  color: white;
+}
+
+#button:hover {
+  background-color: rgb(147, 155, 138);
+  box-shadow: 3px 3px 5px grey;
+}
+
+#button {
+  padding: 10px;
+  border: 1px solid gray;
+  background-color:#07402c;
+  border-radius: 5px;
+  font: inherit;
+  margin-top: 2%; 
+  color: white;
+}
+
