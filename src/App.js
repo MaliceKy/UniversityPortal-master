@@ -1,19 +1,21 @@
-// this is our login page 
-// push work
+import React, { useState } from 'react';
 import './App.css';
 
-import LogPage from "./pages/Login";
+import LogPage from "./pages/Login.js";
+import School from './pages/School.js';
 
-
-//this is where everything is displayed so we call other classes -- basically a main
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleLoginSuccess = () => {
+    setLoggedIn(true);
+  };
+
   return (
     <div className="App">
-     <LogPage />
+      {loggedIn ? <School /> : <LogPage onLoginSuccess={handleLoginSuccess} />}
     </div>
-
   );
 }
-
 
 export default App;
