@@ -1,32 +1,33 @@
 import { useState } from 'react';
-
 import React from 'react';
 import Headr from "../components/Headr.js";
 import Footr from "../components/Footr.js";
 import "../styles/Login.css";
 
-
+// Import data with login credentials
 import Data from '../data/login.json';
 
 function LogPage({ onLoginSuccess }) {
+  // State for input values and error message
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [errorMsg, setErrorMsg] = useState(false);
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if user credentials are valid
     const user = Data.find(user => user.email === email && user.pass === pass);
   
-
+    // If valid, call onLoginSuccess function
     if (user) {
       onLoginSuccess();
     } else {
-
+      // If invalid, set error message
       setErrorMsg('You entered an invalid email or password, please try again!');
     } 
   }
-
-
 
   return (
     <div className='Page'>
@@ -49,6 +50,7 @@ function LogPage({ onLoginSuccess }) {
 }
 
 function ErrorMsg({ errorMsg }) {
+  // Component to display error message if present
   return (
     <div key={errorMsg} className={`error-msg ${errorMsg ? 'visible shake' : ''}`}>
       {errorMsg && <p>{errorMsg}</p>}

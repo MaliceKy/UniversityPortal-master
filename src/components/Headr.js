@@ -8,7 +8,7 @@ import logo from '../images/HogLogo.png';
 function headerNav() {
   return (
     <div className='header'>
-      Welcome to Hogwarts University
+      Hogwarts University
       <img src={logo} alt="Logo" className="logo" />
     </div>
   )

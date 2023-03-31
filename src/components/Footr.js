@@ -1,17 +1,20 @@
-import React from 'react'
-import "../styles/Footr.css";
+import React from 'react';
+import '../styles/Footr.css';
 
-function Footr() {
+function Footer() {
   return (
     <div className='footer'>
-        <div className='left'>
-            <b>Contact us: </b>
-            Phone:123-456-7890 
-            Email: example@Wizard.com 
-            Location: 123 Random Lane Los Angelos California 12456
-        </div>
+      <div className='left'>
+        <b>Contact us: </b>
+        <span style={{ marginLeft: '20px' }}>
+          Email: Service@HogwartsUni.edu
+        </span>
+        <span style={{ marginLeft: '20px' }}>
+          Location: Hogwarts Castle, Highlands, Scotland, Great Britain.
+        </span>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Footr
+export default Footer;

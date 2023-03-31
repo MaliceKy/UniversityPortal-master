@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 
-import LogPage from "./pages/Login.js";
-import School from './pages/School.js';
+import Login from './pages/Login';
+import Courses from './pages/Course';
+import School from './pages/School';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentPage, setCurrentPage] = useState('school');
 
   const handleLoginSuccess = () => {
-    setLoggedIn(true);
+    setCurrentPage('courses');
   };
 
-  return (
-    <div className="App">
-      {loggedIn ? <School /> : <LogPage onLoginSuccess={handleLoginSuccess} />}
-    </div>
-  );
+  let content;
+  if (currentPage === 'school') {
+    content = <School setCurrentPage={setCurrentPage} />;
+  } else if (currentPage === 'login') {
+    content = <Login onLoginSuccess={handleLoginSuccess} />;
+  } else if (currentPage === 'courses') {
+    content = <Courses />;
+  }
+
+  return <div className='App'>{content}</div>;
 }
 
-export default App; 
-
+export default App;
