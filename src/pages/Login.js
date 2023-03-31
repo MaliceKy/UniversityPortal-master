@@ -48,9 +48,9 @@ function LogPage({ onLoginSuccess }) {
   );
 }
 
-function ErrorMsg({ errorMsg, shouldShake }) {
+function ErrorMsg({ errorMsg }) {
   return (
-    <div className={`error-msg ${shouldShake ? 'shake' : ''}`}>
+    <div key={errorMsg} className={`error-msg ${errorMsg ? 'visible shake' : ''}`}>
       {errorMsg && <p>{errorMsg}</p>}
     </div>
   );

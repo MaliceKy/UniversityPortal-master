@@ -46,15 +46,22 @@ label:after { content: ": " }
 }
 
 .error-msg {
-  background-color: #f8d7da;
+  background-color: transparent; /* Change the background color to transparent */
   color: #721c24;
   padding: 2px;
   margin: 15px 0;
   border-radius: 15px;
-  animation: shake 1s ease-in-out;
   display: flex;
   justify-content: center;
   color: red;
+}
+
+.visible {
+  background-color: #f8d7da; /* Move the background color to the 'visible' class */
+}
+
+.shake {
+  animation: shake 1s ease-in-out;
 }
 
 
