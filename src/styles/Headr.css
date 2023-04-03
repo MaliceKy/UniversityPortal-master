@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 150px; /* Set a fixed height for the header container */
+  height: 130px; /* Set a fixed height for the header container */
   padding: 0 60px; /* Remove top and bottom padding, keep left and right padding */
   text-align: left;
   background: #023020;
