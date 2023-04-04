@@ -1,69 +1,104 @@
 form {
   margin: auto;
+
   margin-top: 5%;
-  width: 50%;
-  border: 1px solid green;
-  padding: 50px;
-  border-radius: 25px;
-  text-align: left; 
-   
-
+  max-width: 400px;
+  border: 1.35px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 250px 50px 250px; /* add 400px of padding to the left side */
+  position: relative;
 }
 
-input[type=email], input[type=password] {
+form::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+  height: 100%;
+  background-image: url("../images/ClassRoom1.jpg");
+  background-size: cover;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255);
+}
+
+label {
+  color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
   display: block;
-}
-label:after { content: ": " }
-
-
-
-#submit:focus {
-  outline: 2px solid gray;
-  font-weight: bold;
-  color: white;
-}
-
-#submit:hover {
-  background-color: rgb(147, 155, 138);
-  box-shadow: 3px 3px 5px grey;
-}
-
-#submit {
-  padding: 10px;
-  border: 1px solid gray;
-  background-color:#07402c;
-  border-radius: 5px;
-  font: inherit;
-  margin-top: 2%; 
-  color: white;
+  text-align: center;
+  margin-bottom: 5px;
   
 }
 
+input[type=email], input[type=password] {
+  color: rgb(255, 255, 255);
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  display: block;
+  border: none;
+  border-bottom: 2px solid #ffffff;
+  background-color: transparent;
+  font-size: 1.2rem;
+}
+
+#submit {
+  margin-top: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #065e3f;
+  color: rgb(255, 255, 255);
+
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#submit:hover {
+  background-color: #01933b;
+}
+
 .error-msg {
-  background-color: transparent; /* Change the background color to transparent */
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
   color: #721c24;
-  padding: 2px;
-  margin: 15px 0;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  color: red;
 }
 
-.visible {
-  background-color: #f8d7da; /* Move the background color to the 'visible' class */
+.image-container 
+{
+  height: 100%;
+  width: 40%;
+  background-color: #07402c;
+  border-radius: 10px 0 0 10px;
+  overflow: hidden;
 }
 
-.shake {
-  animation: shake 1s ease-in-out;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
 }
 
-
-
-
+body {
+  background-image: url('../images/Entrance.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

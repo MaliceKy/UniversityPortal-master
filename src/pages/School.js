@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Headr';
 import Footer from '../components/Footr';
 import ClassRoom1 from '../images/ClassRoom1.jpg';
 import '../styles/School.css';
@@ -11,8 +10,6 @@ function School({ setCurrentPage }) {
 
   return (
     <div className="page">
-      <Header />
-
       <div className="page-content">
         <div className="image-container">
           <h1 className="image-text">
@@ -37,5 +34,6 @@ function School({ setCurrentPage }) {
 }
 
 export default School;
+
 
 

@@ -7,7 +7,7 @@ function Footer() {
       <div className='left'>
         <b>Contact us: </b>
         <span style={{ marginLeft: '20px' }}>
-          Email: Service@HogwartsUni.edu
+          Email: CollegeServices@HogwartsUni.edu
         </span>
         <span style={{ marginLeft: '20px' }}>
           Location: Hogwarts Castle, Highlands, Scotland, Great Britain.

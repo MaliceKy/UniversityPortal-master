@@ -4,6 +4,7 @@ import './styles/App.css';
 import Login from './pages/Login';
 import Courses from './pages/Course';
 import School from './pages/School';
+import Header from './components/Headr';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('school');
@@ -21,7 +22,12 @@ function App() {
     content = <Courses />;
   }
 
-  return <div className='App'>{content}</div>;
+  return (
+    <div className='App'>
+      <Header isSchool={currentPage === 'school'} />
+      {content}
+    </div>
+  );
 }
 
 export default App;
