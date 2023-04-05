@@ -1,0 +1,15 @@
+.image-text {
+    position: absolute;
+    font-family: "Bluu Next Bold", Papyrus, fantasy;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: transparent;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    animation-name: reveal;
+    animation-duration: 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+  }

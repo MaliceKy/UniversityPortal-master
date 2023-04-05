@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import './styles/App.css';
 
 import Login from './pages/Login';
-import Courses from './pages/Course';
+import Pages from './pages/Course';
 import School from './pages/School';
 import Header from './components/Headr';
+import Student from './pages/Student';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('school');
@@ -19,7 +20,7 @@ function App() {
   } else if (currentPage === 'login') {
     content = <Login onLoginSuccess={handleLoginSuccess} />;
   } else if (currentPage === 'courses') {
-    content = <Courses />;
+    content = <Pages setCurrentPage={setCurrentPage} />;
   } 
 
   return (
