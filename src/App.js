@@ -12,7 +12,7 @@ function App() {
   const handleLoginSuccess = () => {
     setCurrentPage('courses');
   };
-
+ 
   let content;
   if (currentPage === 'school') {
     content = <School setCurrentPage={setCurrentPage} />;
@@ -20,7 +20,7 @@ function App() {
     content = <Login onLoginSuccess={handleLoginSuccess} />;
   } else if (currentPage === 'courses') {
     content = <Courses />;
-  }
+  } 
 
   return (
     <div className='App'>
