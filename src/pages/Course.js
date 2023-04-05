@@ -1,13 +1,16 @@
 import React from 'react';
 import "../styles/Tab.css";
+import Data from '../data/login.json';
 
-function School() {
+//had to change fuction b/c it kept messing up in app for linking pagesx
+function Pages( {setCurrentPage}) {
 
   const handleProfileClick = () => {
-    console.log('Profile button clicked');
-    // Add your logic here for handling the click event
+    //console.log('Profile button clicked');
+    setCurrentPage('student');
+   
   };
-
+   
   const handleCoursesClick = () => {
     console.log('Courses button clicked');
     // Add your logic here for handling the click event
@@ -58,4 +61,4 @@ function School() {
   );
 }
 
-export default School;
+export default Pages;
