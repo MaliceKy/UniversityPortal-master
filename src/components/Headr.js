@@ -16,5 +16,4 @@ function HeaderNav({ isSchool }) {
     </div>
   );
 }
-
 export default HeaderNav;
