@@ -1,14 +1,22 @@
 [
     {
         "email": "Kyle@HogUni.com",
-        "pass": "Kyle123"
+        "pass": "Kyle123",
+        "role": "Student"
     },
     {
         "email": "Jamie@HogUni.com",
-        "pass": "Jamie123"
+        "pass": "Jamie123",
+        "role": "Student"
     },
     {
         "email": "Prince@HogUni.com",
-        "pass": "Prince123"
+        "pass": "Prince123",
+        "role": "Student"
+    },
+    {
+        "email": "Ding@HogUni.com",
+        "pass": "Ding123",
+        "role": "Teacher"
     }
 ]
