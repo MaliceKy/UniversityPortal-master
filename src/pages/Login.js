@@ -15,6 +15,7 @@ function LogPage({ onLoginSuccess }) {
     const user = Data.find(user => user.email === email && user.pass === pass);
 
     if (user) {
+
       onLoginSuccess();
     } else {
       setErrorMsg('You entered an invalid email or password, please try again!');

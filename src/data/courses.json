@@ -1,0 +1,28 @@
+[
+    {
+        "CourseName": "Wizard101", 
+        "CourseID": "101", 
+        "Teacher": "R", 
+        "Description": "Basics of wizardy1"
+
+    },
+    {
+        "CourseName": "Wizard102", 
+        "CourseID": "102", 
+        "Teacher": "R", 
+        "Description": "Basics of Wizardry2"
+    },
+    {
+        "CourseName": "Wizard103", 
+        "CourseID": "103", 
+        "Teacher": "R", 
+        "Description": "Basics of Wizardry3"
+    },
+    {
+        "CourseName": "Wizard104", 
+        "CourseID": "104", 
+        "Teacher": "R", 
+        "Description": "Basics of WIzardry4"
+    }
+]
+
