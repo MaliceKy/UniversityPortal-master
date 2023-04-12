@@ -86,14 +86,16 @@
   margin-bottom: -35px;
 }
 
-@media only screen and (max-width: 2000px) {
+@media only screen and (max-width: 2140px) {
   .image-text {
     font-size: 2rem;
     line-height: 1.5;
+    top: 50%
   }
 
   .image-text-desc {
-    font-size: 1rem;
+    font-size: 1.25rem;
+    top: 60%;
     line-height: 1.5;
   }
 }
