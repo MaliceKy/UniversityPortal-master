@@ -8,7 +8,7 @@ function Student() {
 
         
     <h1 className="image-text">
-            Helo i am student
+            Hello i am student
     </h1>
     </div>
   )

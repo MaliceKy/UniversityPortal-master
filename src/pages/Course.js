@@ -1,19 +1,14 @@
 import { useState } from 'react';
-import "../styles/Tab.css";
-import "../styles/Course.css";
+import '../styles/Tab.css';
+import '../styles/Course.css';
 import Data from '../data/login.json';
 
-
-
-function Pages( {setCurrentPage}) {
-
+function Pages({ setCurrentPage }) {
   const handleProfileClick = () => {
-    console.log('Courses button clicked');
+    console.log('Profile button clicked');
     setCurrentPage('student');
-       
-    };
- 
-   
+  };
+
   const handleCoursesClick = () => {
     console.log('Courses button clicked');
     // Add your logic here for handling the click event
@@ -50,24 +45,37 @@ function Pages( {setCurrentPage}) {
   };
 
   return (
-    <div className='final'> 
-      <div className="button-container">
-        {/* Example of clickable buttons */}
-        <button className="button" onClick={handleProfileClick} >Profile</button>
-        <button className="button" onClick={handleCoursesClick}>Courses</button>
-        <button className="button" onClick={handleContentClick}>Content</button>
-        <button className="button" onClick={handleEventsClick}>Events</button>
-        <button className="button" onClick={handleClassmatesClick}>Classmates</button>
-        <button className="button" onClick={handleGradesClick}>Grades</button>
-        <button className="button" onClick={handleAnnouncementsClick}>Announcements</button>
-        <button className="button" onClick={handleLogoutClick}>Cool Button</button>
+    <div className="button-container">
+      <div className="button-box">
+        <div className="button-flex">
+          {/* Example of clickable buttons */}
+          <button className="button" onClick={handleProfileClick}>
+            Profile
+          </button>
+          <button className="button" onClick={handleCoursesClick}>
+            Courses
+          </button>
+          <button className="button" onClick={handleContentClick}>
+            Content
+          </button>
+          <button className="button" onClick={handleEventsClick}>
+            Events
+          </button>
+          <button className="button" onClick={handleClassmatesClick}>
+            Classmates
+          </button>
+          <button className="button" onClick={handleGradesClick}>
+            Grades
+          </button>
+          <button className="button" onClick={handleAnnouncementsClick}>
+            Announcements
+          </button>
+          <button className="button" onClick={handleLogoutClick}>
+            Cool Button
+          </button>
         </div>
-
-
-      
+      </div>
     </div>
-
-    
   );
 }
 

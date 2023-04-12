@@ -1,14 +1,16 @@
-.hi {
-    margin: auto;
-  
-    margin-top: 5%;
-    max-width: 400px;
-    border: 1.35px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px 250px 50px 250px; /* add 400px of padding to the left side */
-    position: relative;
-  }
+
+
+.button-box {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  height: 150px;
+  width: 1200px;
+  border: none;
+  outline: none;
+  background: transparent;
+  position: absolute;
+  top: 150%;
+  left: 200%;
+  transform: translateY(-500%, -50%);
+}
