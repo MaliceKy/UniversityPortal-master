@@ -44,7 +44,6 @@ function Pages({ setCurrentPage }) {
     { name: 'Classmates', onClick: () => handleButtonClick('Classmates') },
     { name: 'Grades', onClick: () => handleButtonClick('Grades') },
     { name: 'Announcements', onClick: () => handleButtonClick('Announcements') },
-    { name: 'Cool Button', onClick: handleLogoutClick },
   ];
 
   return (

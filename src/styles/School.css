@@ -18,7 +18,7 @@
   height: 100%;
 }
 
-.image-text {
+.image-title-text {
   position: absolute;
   font-family: "Bluu Next Bold", Papyrus, fantasy;
   top: 35%;
@@ -84,4 +84,16 @@
 
 .page-content {
   margin-bottom: -35px;
+}
+
+@media only screen and (max-width: 2000px) {
+  .image-text {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+
+  .image-text-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }

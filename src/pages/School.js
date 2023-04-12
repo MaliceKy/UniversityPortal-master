@@ -12,7 +12,7 @@ function School({ setCurrentPage }) {
     <div className="page">
       <div className="page-content">
         <div className="image-container">
-          <h1 className="image-text">
+          <h1 className="image-title-text">
             Welcome to Hogwarts School of Witchcraft and Wizardry!
           </h1>
           <h2 className="image-text-desc">
