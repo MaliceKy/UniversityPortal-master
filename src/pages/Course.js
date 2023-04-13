@@ -1,24 +1,17 @@
 import { useState, useEffect } from 'react';
 import '../styles/Tab.css';
 import '../styles/Course.css';
-import Data from '../data/login.json';
 
 function Pages({ setCurrentPage }) {
   const [buttonSize, setButtonSize] = useState('button');
 
   const handleProfileClick = () => {
     console.log('Profile button clicked');
-    setCurrentPage('student');
+    setCurrentPage('profile');
   };
 
   const handleButtonClick = (buttonName) => {
     console.log(`${buttonName} button clicked`);
-    // Add your logic here for handling the click event
-  };
-
-  const handleLogoutClick = () => {
-    console.log('Logout button clicked');
-    window.location.href = 'https://i.pinimg.com/564x/10/04/43/1004430dee8038f3bdfa86cde175057f.jpg';
   };
 
   useEffect(() => {
@@ -48,7 +41,6 @@ function Pages({ setCurrentPage }) {
 
   return (
     <div className="button-container">
-      {/* Example of clickable buttons */}
       {buttons.map(({ name, onClick }) => (
         <button key={name} className={buttonSize} onClick={onClick}>
           {name}

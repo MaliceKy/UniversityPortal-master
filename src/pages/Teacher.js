@@ -1,15 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Profile from './Profile';
 
-function Teacher() {
-    return (
-        <div className='full'>
-    
-            
-        <h1 className="image-text">
-                Helo i am teacher
-        </h1>
-        </div>
-      )
+function Teacher({ currentUser, setCurrentPage }) {
+  return (
+    <div>
+      <button onClick={() => setCurrentPage('courses')}>Back to Courses</button>
+      <Profile currentUser={currentUser} />
+    </div>
+  );
 }
 
-export default Teacher
+export default Teacher;

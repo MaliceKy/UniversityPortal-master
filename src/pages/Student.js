@@ -1,17 +1,13 @@
-import React from 'react'
+import React from 'react';
+import Profile from './Profile';
 
-
-//for some reason nothing on here is showing up 
-function Student() {
+function Student({ currentUser, setCurrentPage }) {
   return (
-    <div className='full'>
-
-        
-    <h1 className="image-text">
-            Hello i am student
-    </h1>
+    <div>
+      <button onClick={() => setCurrentPage('courses')}>Back to Courses</button>
+      <Profile currentUser={currentUser} />
     </div>
-  )
+  );
 }
 
-export default Student
+export default Student;

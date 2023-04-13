@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import "../styles/Login.css";
 
-// Import data with login credentials
 import Data from '../data/login.json';
 
 function LogPage({ onLoginSuccess }) {
@@ -15,11 +14,10 @@ function LogPage({ onLoginSuccess }) {
     const user = Data.find(user => user.email === email && user.pass === pass);
 
     if (user) {
-
-      onLoginSuccess();
+      onLoginSuccess(user);
     } else {
       setErrorMsg('You entered an invalid email or password, please try again!');
-    } 
+    }
   }
 
   return (
@@ -33,10 +31,10 @@ function LogPage({ onLoginSuccess }) {
         <button type="submit" id="submit">Log In</button>
         {errorMsg && <p className="error-msg">{errorMsg}</p>}
       </form>
-      
     </div>
   );
 }
 
 export default LogPage;
+
 
