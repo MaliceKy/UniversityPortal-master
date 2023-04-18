@@ -1,27 +1,32 @@
 
 [
     {
-        "email": "Kyle@HogUni.com",
-        "pass": "Kyle123",
-        "role": "student",
-        "ID": 123
+      "name": "Kyle",
+      "email": "Kyle@HogUni.com",
+      "pass": "Kyle123",
+      "role": "student",
+      "ID": 123
     },
     {
-        "email": "Jamie@HogUni.com",
-        "pass": "Jamie123",
-        "role": "student",
-        "ID": 124
+      "name": "Jamie",
+      "email": "Jamie@HogUni.com",
+      "pass": "Jamie123",
+      "role": "student",
+      "ID": 124
     },
     {
-        "email": "Prince@HogUni.com",
-        "pass": "Prince123",
-        "role": "student",
-        "ID": 125
+      "name": "Prince",
+      "email": "Prince@HogUni.com",
+      "pass": "Prince123",
+      "role": "student",
+      "ID": 125
     },
     {
-        "email": "Ding@HogUni.com",
-        "pass": "Ding123",
-        "role": "teacher",
-        "ID": 126
+      "name": "Ding",
+      "email": "Ding@HogUni.com",
+      "pass": "Ding123",
+      "role": "teacher",
+      "ID": 126
     }
-]
+  ]
+  
