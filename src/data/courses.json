@@ -1,31 +1,31 @@
 [
     {
-        "CourseName": "Wizard101", 
-        "CourseID": "101", 
-        "Teacher": "Ding", 
-        "Description": "Basics of wizardy1",
-        "StudentsEnrolledArray" : ["123", "124", "125"] 
+        "courseName": "Wizard101", 
+        "courseID": "101", 
+        "teacher": "Ding", 
+        "description": "Basics of wizardy1",
+        "studentsEnrolledArray" : [123, 124, 125] 
     },
     {
-        "CourseName": "Wizard102", 
-        "CourseID": "102", 
-        "Teacher": "Ding", 
-        "Description": "Basics of Wizardry2",
-        "StudentsEnrolledArray" : ["123", "124", "125"] 
+        "courseName": "Wizard102", 
+        "courseID": "102", 
+        "teacher": "Ding", 
+        "description": "Basics of Wizardry2",
+        "studentsEnrolledArray" : [123, 124, 125] 
     },
     {
-        "CourseName": "Wizard103", 
-        "CourseID": "103", 
-        "Teacher": "Ding", 
-        "Description": "Basics of Wizardry3",
-        "StudentsEnrolledArray" : ["123", "124", "125"] 
+        "courseName": "Wizard103", 
+        "courseID": "103", 
+        "teacher": "Ding", 
+        "description": "Basics of Wizardry3",
+        "studentsEnrolledArray" : [123, 124, 125] 
     },
     {
-        "CourseName": "Wizard104", 
-        "CourseID": "104", 
-        "Teacher": "Ding", 
-        "Description": "Basics of WIzardry4",
-        "StudentsEnrolledArray" : ["123", "124", "125"] 
+        "courseName": "Wizard104", 
+        "courseID": "104", 
+        "teacher": "Ding", 
+        "description": "Basics of WIzardry4",
+        "studentsEnrolledArray" : [123, 124, 125] 
     }
 ]
 
