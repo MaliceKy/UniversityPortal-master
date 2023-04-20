@@ -26,7 +26,7 @@ function App() {
   } else if (currentPage === 'courses') {
     content = <Pages setCurrentPage={setCurrentPage} userRole={userRole} />;
   } else if (currentPage === 'profile') {
-    content = <Profile currentUser={userId} />;
+    content = <Profile currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
 
   return (
@@ -38,3 +38,4 @@ function App() {
 }
 
 export default App;
+

@@ -11,7 +11,7 @@
         "courseID": "102", 
         "teacher": "Ding", 
         "description": "Basics of Wizardry2",
-        "studentsEnrolledArray" : [123, 124, 125] 
+        "studentsEnrolledArray" : [123, 125] 
     },
     {
         "courseName": "Wizard103", 
