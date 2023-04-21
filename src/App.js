@@ -24,7 +24,7 @@ function App() {
   } else if (currentPage === 'login') {
     content = <Login onLoginSuccess={handleLoginSuccess} />;
   } else if (currentPage === 'courses') {
-    content = <Pages setCurrentPage={setCurrentPage} userRole={userRole} />;
+    content = <Pages setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'profile') {
     content = <Profile currentUser={userId} setCurrentPage={setCurrentPage} />;
   }

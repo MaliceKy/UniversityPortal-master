@@ -28,6 +28,31 @@
   margin-top: -10px;
 }
 
+.registered-courses-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #03770d;
+  margin-bottom: 1rem;
+}
+
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.course-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+}
+
+
 
 
 
