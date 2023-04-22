@@ -3,13 +3,25 @@ import { useState, useEffect } from 'react';
 import '../styles/Tab.css';
 import '../styles/Course.css';
 
-function NavigationButtons({ setCurrentPage }) {
+function NavigationButtons({ setCurrentPage, userRole, userId }) {
   const [buttonSize, setButtonSize] = useState('button');
 
   const handleProfileClick = () => {
     console.log('Profile button clicked');
     setCurrentPage('profile');
   };
+
+  const handleContentClick = () => {
+    console.log('Content button clicked');
+    if(userRole === "Teacher"){
+      setCurrentPage('teacher');
+    }
+    else {
+      setCurrentPage('student');
+    }
+  };
+
+
 
   const handleButtonClick = (buttonName) => {
     console.log(`${buttonName} button clicked`);
@@ -33,7 +45,7 @@ function NavigationButtons({ setCurrentPage }) {
   const buttons = [
     { name: 'Profile', onClick: handleProfileClick },
     { name: 'Courses', onClick: () => handleButtonClick('Courses') },
-    { name: 'Content', onClick: () => handleButtonClick('Content') },
+    { name: 'Content', onClick: () => handleContentClick('Content') },
     { name: 'Events', onClick: () => handleButtonClick('Events') },
     { name: 'Classmates', onClick: () => handleButtonClick('Classmates') },
     { name: 'Grades', onClick: () => handleButtonClick('Grades') },

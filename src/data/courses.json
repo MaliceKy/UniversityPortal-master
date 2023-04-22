@@ -4,28 +4,41 @@
         "courseID": "101", 
         "teacher": "Ding", 
         "description": "Basics of wizardy1",
-        "studentsEnrolledArray" : [123, 124, 125] 
+        "studentsEnrolledArray" : [123, 124, 125], 
+        "classRoom" : 101,
+        "classDays" : "Monday, Wednesday, Friday",
+        "classTime" : "1:30pm to 2:30pm"
     },
     {
         "courseName": "Wizard102", 
         "courseID": "102", 
         "teacher": "Ding", 
         "description": "Basics of Wizardry2",
-        "studentsEnrolledArray" : [123, 125] 
+        "studentsEnrolledArray" : [123, 125], 
+        "classRoom" : 102,
+        "classDays" : "Monday, Wednesday, Friday",
+        "classTime" : "12:00pm to 1:45pm"
     },
     {
         "courseName": "Wizard103", 
         "courseID": "103", 
         "teacher": "Ding", 
         "description": "Basics of Wizardry3",
-        "studentsEnrolledArray" : [123, 124, 125] 
+        "studentsEnrolledArray" : [123, 124, 125], 
+        "classRoom" : 103,
+        "classDays" : "Monday, Wednesday, Friday",
+        "classTime" : "8:00am to 9:00am"
+        
     },
     {
         "courseName": "Wizard104", 
         "courseID": "104", 
         "teacher": "Ding", 
         "description": "Basics of WIzardry4",
-        "studentsEnrolledArray" : [123, 124, 125] 
+        "studentsEnrolledArray" : [123, 124, 125], 
+        "classRoom" : 104,
+        "classDays" : "Tuesday, Thursday",
+        "classTime" : "10:00am to 11:30am"
     }
 ]
 

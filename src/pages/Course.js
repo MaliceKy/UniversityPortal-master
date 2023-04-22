@@ -19,9 +19,10 @@ function Pages({ setCurrentPage, userRole, userId }) {
     }
   }, [userRole, userId]);
 
+  /* the coursedata being used here is all random just to use as filler data*/
   return (
     <div>
-      <NavigationButtons setCurrentPage={setCurrentPage} />
+      <NavigationButtons setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />
       <h3>Registered Courses:</h3>
       {courses.length === 0 ? (
         <p>Currently you're not registered for any courses</p>
@@ -31,6 +32,13 @@ function Pages({ setCurrentPage, userRole, userId }) {
             <div key={course.courseID} className="course-card">
               <h4>{course.courseName}</h4>
               <p>{course.description}</p>
+              <p> Instructor: {course.teacher}</p>
+              <p>Classroom: {course.classRoom}</p>
+              <p> Your Classes: {course.classRoom} </p>
+              <h4>Days of the class</h4>
+              <hr />
+              <p>{course.classDays}</p>
+              <p>{course.classTime}</p>
             </div>
           ))}
         </div>
