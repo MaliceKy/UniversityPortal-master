@@ -14,6 +14,10 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     console.log('Profile button clicked');
     setCurrentPage('courseWork');
   };
+  const handleRegisterClick = () => {
+    console.log('courses button clicked');
+    setCurrentPage('registration');
+  };
 
   const handleContentClick = () => {
     console.log('Content button clicked');
@@ -48,7 +52,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
 
   const buttons = [
     { name: 'Profile', onClick: handleProfileClick },
-    { name: 'Courses', onClick: () => handleButtonClick('Courses') },
+    { name: 'Courses', onClick: () => handleRegisterClick('Registration') },
     { name: 'Content', onClick: () => handleContentClick('Content') },
     { name: 'Events', onClick: () => handleButtonClick('Events') },
     { name: 'Assignments', onClick: () => handleAssignmentClick('courseWork') },

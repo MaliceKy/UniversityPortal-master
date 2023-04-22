@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import CourseWork from './pages/CourseWork';
+import Registration from './pages/Registration';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('school');
@@ -36,6 +37,8 @@ function App() {
     content = <Teacher currentUser={userId} setCurrentPage={setCurrentPage} />;
   }else if (currentPage === 'courseWork') {
     content = <CourseWork currentUser={userId} setCurrentPage={setCurrentPage} />;
+  }else if (currentPage === 'registration') {
+    content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
 
   return (
