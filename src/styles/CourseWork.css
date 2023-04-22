@@ -1,10 +1,61 @@
-.box-container {
-	background: white;
-	border-radius: 25px;
+.button-container {
     display: flex;
-  justify-content: center;
-  
-  min-height: calc(100vh - 10/* Adjust this value according to the height of your buttons */);
-  padding-top: 50px;
-
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Add this line */
 }
+  
+.button {
+    background-color: #03770d;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-grow: 1;
+    margin-bottom: 10px; /* Add this line */
+    max-width: 200px; /* Add this line */
+}
+  
+.button-small {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-top: -10px;
+}
+  
+.registered-courses-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #03770d;
+    margin-bottom: 1rem;
+}
+  
+  
+.course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+}
+  
+.course-card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+}
+  
+  
+.fixButtons {
+    margin-bottom:20px;
+}
+  
+  
+  

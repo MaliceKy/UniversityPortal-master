@@ -36,7 +36,7 @@ function App() {
   }else if (currentPage === 'teacher') {
     content = <Teacher currentUser={userId} setCurrentPage={setCurrentPage} />;
   }else if (currentPage === 'courseWork') {
-    content = <CourseWork currentUser={userId} setCurrentPage={setCurrentPage} />;
+    content = <CourseWork setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   }else if (currentPage === 'registration') {
     content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
