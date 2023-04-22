@@ -1,0 +1,10 @@
+.box-container {
+	background: white;
+	border-radius: 25px;
+    display: flex;
+  justify-content: center;
+  
+  min-height: calc(100vh - 10/* Adjust this value according to the height of your buttons */);
+  padding-top: 50px;
+
+}
