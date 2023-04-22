@@ -15,7 +15,7 @@
   margin-right: 10px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.3s ease;
   flex-grow: 1;
   margin-bottom: 10px; /* Add this line */
   max-width: 200px; /* Add this line */
