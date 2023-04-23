@@ -1,31 +1,25 @@
 /* Styles for custom buttons */
 .button-container {
-  position: absolute;
+  position: fixed;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-20%);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  margin: 5px;
-  margin-left: 500px;
+  gap: 5px;
 }
 
 .button {
-  
-  position: relative;
-  margin: 5px;
-  top: -105px;
-  padding: 20px 35px;
+  padding: 25px 30px;
   background-color: #03770d;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  
 }
-
-
 
 .button:hover {
   background-color: #01933b;
@@ -34,5 +28,9 @@
 .button:focus {
   outline: none;
 }
+
+
+
+
   
 

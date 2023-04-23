@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Course.css';
 import CourseData from '../data/courses.json';
 
-function Pages({ setCurrentPage, userRole, userId }) {
+function Course({ setCurrentPage, userRole, userId }) {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -47,4 +47,4 @@ function Pages({ setCurrentPage, userRole, userId }) {
   );
 }
 
-export default Pages;
+export default Course;

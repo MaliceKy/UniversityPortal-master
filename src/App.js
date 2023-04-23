@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './styles/App.css';
 
 import Login from './pages/Login';
-import Pages from './pages/Course';
+import Course from './pages/Course';
 import School from './pages/School';
 import Header from './components/Headr';
 import Profile from './pages/Profile';
@@ -28,16 +28,16 @@ function App() {
   } else if (currentPage === 'login') {
     content = <Login onLoginSuccess={handleLoginSuccess} />;
   } else if (currentPage === 'courses') {
-    content = <Pages setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
+    content = <Course setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'profile') {
     content = <Profile currentUser={userId} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'student') {
     content = <Student currentUser={userId} setCurrentPage={setCurrentPage} />;
-  }else if (currentPage === 'teacher') {
+  } else if (currentPage === 'teacher') {
     content = <Teacher currentUser={userId} setCurrentPage={setCurrentPage} />;
-  }else if (currentPage === 'courseWork') {
+  } else if (currentPage === 'courseWork') {
     content = <CourseWork setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
-  }else if (currentPage === 'registration') {
+  } else if (currentPage === 'registration') {
     content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
 
@@ -50,4 +50,5 @@ function App() {
 }
 
 export default App;
+
 

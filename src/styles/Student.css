@@ -63,25 +63,6 @@
     animation-fill-mode: forwards;
   }
   
-  .btn {
-    position: absolute;
-    top: 45px;
-    right: 30px;
-    padding: 10px 20px;
-    background-color: #03770d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .btn:hover {
-    background-color: #01933b;
-  }
-  
   .page-content {
     margin-bottom: -35px;
   }

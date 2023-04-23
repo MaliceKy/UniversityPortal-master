@@ -1,7 +1,5 @@
-// NavigationButtons.js
 import { useState, useEffect } from 'react';
-import '../styles/Tab.css';
-import '../styles/Course.css';
+import '../styles/buttons.css';
 
 function NavigationButtons({ setCurrentPage, userRole, userId }) {
   const [buttonSize, setButtonSize] = useState('button');
@@ -11,12 +9,12 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     setCurrentPage('profile');
   };
   const handleAssignmentClick = () => {
-    console.log('Profile button clicked');
+    console.log('Assignment button clicked');
     setCurrentPage('courseWork');
   };
-  const handleRegisterClick = () => {
-    console.log('courses button clicked');
-    setCurrentPage('registration');
+  const handleCourseClick = () => {
+    console.log('Courses button clicked');
+    setCurrentPage('courses');
   };
 
   const handleContentClick = () => {
@@ -28,8 +26,6 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
       setCurrentPage('student');
     }
   };
-
-
 
   const handleButtonClick = (buttonName) => {
     console.log(`${buttonName} button clicked`);
@@ -52,10 +48,10 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
 
   const buttons = [
     { name: 'Profile', onClick: handleProfileClick },
-    { name: 'Courses', onClick: () => handleRegisterClick('Registration') },
-    { name: 'Content', onClick: () => handleContentClick('Content') },
+    { name: 'Courses', onClick: handleCourseClick },
+    { name: 'Content', onClick: handleContentClick },
     { name: 'Events', onClick: () => handleButtonClick('Events') },
-    { name: 'Assignments', onClick: () => handleAssignmentClick('courseWork') },
+    { name: 'Assignments', onClick: handleAssignmentClick },
     { name: 'Grades', onClick: () => handleButtonClick('Grades') },
     { name: 'Announcements', onClick: () => handleButtonClick('Announcements') },
   ];
@@ -72,3 +68,4 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
 }
 
 export default NavigationButtons;
+
