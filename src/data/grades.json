@@ -1,0 +1,59 @@
+[
+    {
+        "courseID": "101", 
+        "teachersID": 126,
+        "studentID": 125,
+        "grade": "A"
+        
+        
+    },
+
+    {
+        "courseID": "101", 
+        "teachersID": 126,
+        "studentID": 124,
+        "grade": "B"
+        
+        
+    },
+    {
+        "courseID": "102", 
+        "teachersID": 126,
+        "studentID": 125,
+        "grade": "C"
+        
+        
+    },
+    {
+        "courseID": "102", 
+        "teachersID": 126,
+        "studentID": 123,
+        "grade": "D"
+        
+        
+    },
+    {
+        "courseID": "103", 
+        "teachersID": 126,
+        "studentID": 124,
+        "grade": "F"
+        
+        
+    },
+    {
+        "courseID": "104", 
+        "teachersID": 126,
+        "studentID": 124,
+        "grade": "A"
+        
+        
+    },
+    {
+        "courseID": "104", 
+        "teachersID": 126,
+        "studentID": 125,
+        "grade": "B" 
+    }
+   
+    
+]
