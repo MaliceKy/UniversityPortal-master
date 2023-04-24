@@ -30,7 +30,7 @@
 }
 
 /* Laptops and Macbooks below */
-@media (max-width: 1250px) { /* pixels on a screen size */
+@media (max-width: 1470px) { /* pixels on a screen size */
   .button {
     padding: 15px 15px; /* Button Sizing */
     font-size: 1rem; /* font size */
