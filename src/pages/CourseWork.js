@@ -14,15 +14,17 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
     if (userRole === 'student') {
       const enrolledCourses = CourseData.filter(course => course.studentsEnrolledArray.includes(userId));
       setCourses(enrolledCourses);
+      const userAssignments = AssignmentData.filter(assignment => assignment.courseID);
+      setAssignments(userAssignments);
     } else if (userRole === 'teacher') {
-      const teachingCourses = CourseData.filter(course => course.teacher === userId);
+      const teachingCourses = CourseData.filter(course => course.teachersID === userId);
       setCourses(teachingCourses);
+      const teacherAssignments = AssignmentData.filter(assignment => assignment.teachersID === userId);
+      setAssignments(teacherAssignments);
     }
-
     // Get assignments for user
-    const userAssignments = AssignmentData.filter(assignment => assignment.courseID);
-    setAssignments(userAssignments);
   }, [userRole, userId]);
+
 
 
   const handleSubmit = (event) => {
@@ -84,6 +86,44 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
 
         <div id="submitMessage"></div>
       </div>
+      
+      )}
+      {userRole === 'teacher' && (
+      <div className='submission'>
+        Would you like to post an assignment? 
+        <h2>Complete the following</h2>
+        <form action="/action_page.php">
+        <label for="country">What course is this for?</label>
+        <select name="course" id="courseselect">
+        {courses.map(course => (
+          <option key={course.courseID} value={course.courseID}>
+            {course.courseName}
+          </option>
+        ))}
+        </select>
+
+        <label for="assignmentName">Assignment Name:</label>
+        <input type="text" id="assignmentName" name="firstname" placeholder="Assignment Name" />
+
+        <label for="teachersID">School ID</label>
+        <input type="text" id="teachersID" name="lastname" placeholder="ID" />
+
+        <label for="duedate">Assignment Due Date</label>
+        <input type="text" id="duedate" name="lastname" placeholder="YYYY-MM-DD" />
+
+        <label for="duetime">Assignment Time Due</label>
+        <input type="text" id="duetime" name="lastname" placeholder="HH-MM-SS" />
+
+        <label for="pointsworth"> Assignment Points Worth</label>
+        <input type="text" id="pointsworth" name="lastname" placeholder="00pts" />
+
+        <label for="description">Assignment Description</label>
+        <textarea type="text" id="duedate" name="lastname" placeholder="description" />
+        
+        <button type="submitbutton" id="submitAssignment">Submit</button>
+  </form>
+      </div>
+      
       )}
     </div>
   );
