@@ -1,0 +1,16 @@
+#access-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    padding-bottom: 10%;
+    margin: auto;
+    box-sizing: border-box;
+    text-align: center;
+    width: 55%;
+    height: 30%;
+  }
+
+#description {
+    margin-top: 15px; 
+}
