@@ -15,8 +15,39 @@ function Registration({ currentUser, setCurrentPage }) {
     setUnregisteredCourses(availableCourses);
   }, [currentUser]);
 
-  const handleCourseClick = (event) => {
-    
+  const handleCourseClick = (event, course) => {
+    const user = UserData.find(user => user.ID === currentUser);
+    const requestData = {
+      courseId: course.courseID,
+      userId: user.ID
+    };
+    fetch('/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data.message);
+      const updatedCourse = {
+        ...course,
+        studentsEnrolledArray: [...course.studentsEnrolledArray, user.ID]
+      };
+      const updatedCourses = CourseData.map(c => {
+        if (c.courseID === course.courseID) {
+          return updatedCourse;
+        }
+        return c;
+      });
+      setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID)));
+      // You can replace the above line with the following if you want to remove the course from the list after registration:
+      // setUnregisteredCourses(unregisteredCourses.filter(c => c.courseID !== course.courseID));
+    })
+    .catch(error => {
+      console.error(error);
+    });
   };
 
   const courseButtons = unregisteredCourses.map((course) => (
@@ -32,7 +63,7 @@ function Registration({ currentUser, setCurrentPage }) {
       <p>Class Time: {course.classTime}</p>
       <button
         className="course-button"
-        onClick={handleCourseClick}
+        onClick={(event) => handleCourseClick(event, course)}
         key={course.courseID}
       >
         Register for {course.courseName}
@@ -54,4 +85,3 @@ function Registration({ currentUser, setCurrentPage }) {
 }
 
 export default Registration;
-
