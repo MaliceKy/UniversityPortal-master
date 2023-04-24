@@ -82,25 +82,29 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
                 new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)
             );
 
-          return (
-            <div key={courses.courseID} className="coursework-card">
-              <h4>{courses.courseName}</h4>
-              {courseAssignments.map((assignment) => (
-                <div key={assignment.assignmentName}>
-                  <h4>{assignment.assignmentName}</h4>
-                  <p>
-                    Due date: {assignment.assignmentDueDate}{' '}
-                    {assignment.assignmentDueTime}
-                  </p>
-                  <p>Description: {assignment.assignmentDescription}</p>
-                  <p>Worth: {assignment.assignmentWorth}</p>
-                </div>
-              ))}
-            </div>
-          );
+            return (
+              <div key={courses.courseID} className="coursework-card">
+                <h3>{courses.courseName}</h3>
+                <hr />
+                <div className="assignments-container"> {/* Add this div */}
+                  {courseAssignments.map((assignment) => (
+                    <div key={assignment.assignmentName}>
+                      <h3>{assignment.assignmentName}</h3>
+                      <p>
+                        Due date: {assignment.assignmentDueDate}{' '}
+                        {assignment.assignmentDueTime}
+                      </p>
+                      <p>Description: {assignment.assignmentDescription}</p>
+                      <p>Worth: {assignment.assignmentWorth}</p>
+                    </div>
+                  ))}
+                </div> {/* Close the div */}
+              </div>
+            );
+            
         })}
       </div>
-      {userRole === 'student' && (
+            {userRole === 'student' && (
     <div className='submission'>
       Would you like to submit an assignment?
       If so select the assignment you are submitting
@@ -137,8 +141,8 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
         
         <form onSubmit={handleAddAssignment}>
         <div className='rightSide5'>
-        <label for="drop" class="form-label">What course is this for?</label>
-        <select name="drop" id="drop">
+        <label for="course" class="form-label">What course is this for?</label>
+        <select name="course" id="course">
         {courses.map(course => (
           <option key={course.courseID} value={course.courseID}>
             {course.courseName}
@@ -147,28 +151,28 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
         </select>
 
         
-        <label for='assignname' class="form-label" id = "nam">Assignment Name:</label>
-        <input type="text" id='assignname' name="assignname" placeholder="Assignment Name" />
+        <label for='assignmentName' class="form-label" id = "nam">Assignment Name:</label>
+        <input type="text" id='assignmentName' name="assignmentName" placeholder="Assignment Name" />
         </div> 
         <div className='rightSide3'> 
-        <label for='id' class="form-label"> School ID</label>
-        <input type="text" id='id' name="id" placeholder="ID" />
+        <label for='teachersID' class="form-label"> School ID</label>
+        <input type="text" id='teachersID' name="teachersID" placeholder="ID" />
         
         
-        <label for='date' class="form-label">Assignment Due Date</label>
-        <input type="text" id='date' name="date" placeholder="YYYY-MM-DD" />
+        <label for='duedate' class="form-label">Assignment Due Date</label>
+        <input type="text" id='duedate' name="duedate" placeholder="YYYY-MM-DD" />
         </div>
         <div className='rightSide2'>
-        <label for="time" class="form-label">Assignment Time Due</label>
-        <input type="text" id='time' name="time" placeholder="HH-MM-SS" />
+        <label for="duetime" class="form-label">Assignment Time Due</label>
+        <input type="text" id='duetime' name="duetime" placeholder="HH-MM-SS" />
         
         
-        <label for='poi' class="form-label"> Assignment Points Worth</label>
-        <input type="text" id='poi' name="poi" placeholder="00pts" />
+        <label for='pointsworth' class="form-label"> Assignment Points Worth</label>
+        <input type="text" id='pointsworth' name="pointsworth" placeholder="00pts" />
         </div>
         <div className='leftSide'>
-        <label for='desc ' class="form-label">Assignment Description</label>
-        <textarea type="text" id='desc' name="desc" placeholder="description" />
+        <label for='description ' class="form-label">Assignment Description</label>
+        <textarea type="text" id='description' name="description" placeholder="description" />
         
         <button type="submitbutton" id="submitAssignment">Submit</button>
         </div>

@@ -12,8 +12,13 @@ app.get('/api/assignments', (req, res) => {
 });
 
 app.post('/api/assignments', (req, res) => {
-  const newAssignment = req.body;
+  let newAssignment = req.body;
   const data = JSON.parse(fs.readFileSync('./src/data/assignments.json', 'utf-8'));
+
+  // Parse teacher's ID as an integer
+  if (newAssignment.hasOwnProperty('teachersID')) {
+    newAssignment.teachersID = parseInt(newAssignment.teachersID, 10);
+  }
 
   data.push(newAssignment);
   fs.writeFileSync('./src/data/assignments.json', JSON.stringify(data, null, 2));
@@ -49,4 +54,3 @@ app.post('/api/drop', (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
-

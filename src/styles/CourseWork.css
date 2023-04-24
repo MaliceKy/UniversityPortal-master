@@ -1,131 +1,140 @@
 .registered-courses-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #03770d;
-    margin-bottom: 1rem;
-  }
-  
-  .coursework-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: .02rem;
-  }
-  
-  .coursework-card {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    margin-top: 2%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #03770d;
+  margin-bottom: 1rem;
+}
 
-  }
-  
-  .fixButtons {
-    margin-bottom: 20px;
-  }
-  
+.coursework-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0.2rem;
+}
+
+.coursework-card {
+  background-color: white;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  margin-top: 2%;
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+}
+
+.coursework-card h4 {
+  margin-bottom: 0.5rem;
+  padding: 1rem 1.5rem;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  position: relative; /* Add this line */
+  top: 0;
+  z-index: 1;
+}
+
+
+.assignments-container {
+  position: absolute;
+  top: 3rem; /* Updated to create space for the course title */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: scroll;
+  padding-right: 8px;
+  padding-top: 1rem; /* Added to create space between the course title and the assignment title */
+}
+
+.assignments-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.assignments-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.assignments-container::-webkit-scrollbar-thumb {
+  background: #d1cfcf;
+}
+
+.assignments-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.coursework-card div {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.coursework-card div:last-child {
+  border-bottom: none;
+}
+
+.fixButtons {
+  margin-bottom: 20px;
+}
+
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: -20%;
-    flex-wrap: wrap; /* Add this line */
-    
-    
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -20%;
+  flex-wrap: wrap;
 }
-  
-  .submission {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    padding: 20px;
-    margin: auto;
-    max-width: 500px;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: center;
-    margin-top: 5%;
 
-  }
-  
+.submission {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  margin: auto;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 5%;
+}
+
 textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 80%; 
-    margin-bottom: 5%;
-    margin-left: 3%;
-    margin-top: -20%; /* add this line */
-
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 5%;
+  margin-left: 3%;
+  margin-top: -20%;
 }
-  
-.submitAssignment{
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
 
-    
+.submitAssignment {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-    
+.submitAssignment:hover {
+  background-color: #3e8e41;
 }
 
 .teachsub {
   background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    padding: 15px;
-    padding-bottom: 10%;
-    margin: auto;
-    box-sizing: border-box;
-    text-align: center;
-    margin-top: 5%;
-    width: 55%;
-    height: 30%;
-    
-}
-  
-.submitAssignment:hover {
-    background-color: #3e8e41;
-}
-.rightSide {
-  float:left;
-}
-.leftSide {
-  float: right; 
-  margin-right: 15px;
-  margin-top: 7%;
-}
-
-.rightSide5 {
-  float:left;
-  margin-right: 8px;
-}
-
-.rightSide3 {
-  float:left;
-  margin-right: 8px;
-}
-
-.rightSide2 {
-  float:left;
-  margin-right: 8px;
- 
-}
-
-.label4 {
-  color: black;
-  font-size: 10px;
-
-}
-input {
-  margin-bottom: 13px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  padding-bottom: 10%;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 5%;
+  width: 55%;
+  height: 30%;
 }
 
 .form-label {
@@ -135,7 +144,20 @@ input {
   text-align: center;
 }
 
+input {
+  margin-bottom: 13px;
+}
 
 #nam {
-  margin-top: 13px; 
+  margin-top: 13px;
+}
+
+.rightSide, .rightSide2, .rightSide3, .rightSide5, .leftSide {
+  float: left;
+  margin-right: 8px;
+}
+
+.leftSide {
+  margin-right: 15px;
+  margin-top: 7%;
 }
