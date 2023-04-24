@@ -8,6 +8,8 @@ import CourseData from '../data/courses.json';
 function CourseWork({ userId, userRole, setCurrentPage}) {
   const [courses, setCourses] = useState([]);
   const [assignments, setAssignments] = useState([]);
+  
+  
 
   useEffect(() => {
     // Get courses
@@ -32,6 +34,7 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
     document.getElementById("not").style.display = "none";
     document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
   }
+  
 
   return (
     <div>
@@ -89,12 +92,15 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
       
       )}
       {userRole === 'teacher' && (
-      <div className='submission'>
+      <div className='teachsub'>
+
         Would you like to post an assignment? 
         <h2>Complete the following</h2>
-        <form action="/action_page.php">
-        <label for="country">What course is this for?</label>
-        <select name="course" id="courseselect">
+        
+        <form >
+        <div className='rightSide5'>
+        <label for="drop" class="form-label">What course is this for?</label>
+        <select name="drop" id="drop">
         {courses.map(course => (
           <option key={course.courseID} value={course.courseID}>
             {course.courseName}
@@ -102,25 +108,32 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
         ))}
         </select>
 
-        <label for="assignmentName">Assignment Name:</label>
-        <input type="text" id="assignmentName" name="firstname" placeholder="Assignment Name" />
-
-        <label for="teachersID">School ID</label>
-        <input type="text" id="teachersID" name="lastname" placeholder="ID" />
-
-        <label for="duedate">Assignment Due Date</label>
-        <input type="text" id="duedate" name="lastname" placeholder="YYYY-MM-DD" />
-
-        <label for="duetime">Assignment Time Due</label>
-        <input type="text" id="duetime" name="lastname" placeholder="HH-MM-SS" />
-
-        <label for="pointsworth"> Assignment Points Worth</label>
-        <input type="text" id="pointsworth" name="lastname" placeholder="00pts" />
-
-        <label for="description">Assignment Description</label>
-        <textarea type="text" id="duedate" name="lastname" placeholder="description" />
+        
+        <label for='assignname' class="form-label" id = "nam">Assignment Name:</label>
+        <input type="text" id='assignname' name="assignname" placeholder="Assignment Name" />
+        </div> 
+        <div className='rightSide3'> 
+        <label for='id' class="form-label"> School ID</label>
+        <input type="text" id='id' name="id" placeholder="ID" />
+        
+        
+        <label for='date' class="form-label">Assignment Due Date</label>
+        <input type="text" id='date' name="date" placeholder="YYYY-MM-DD" />
+        </div>
+        <div className='rightSide2'>
+        <label for="time" class="form-label">Assignment Time Due</label>
+        <input type="text" id='time' name="time" placeholder="HH-MM-SS" />
+        
+        
+        <label for='poi' class="form-label"> Assignment Points Worth</label>
+        <input type="text" id='poi' name="poi" placeholder="00pts" />
+        </div>
+        <div className='leftSide'>
+        <label for='desc ' class="form-label">Assignment Description</label>
+        <textarea type="text" id='desc' name="desc" placeholder="description" />
         
         <button type="submitbutton" id="submitAssignment">Submit</button>
+        </div>
   </form>
       </div>
       

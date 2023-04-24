@@ -1,49 +1,49 @@
 [
     {
-        "assignmentName": "Essay One", 
+        "assignmentName": "Potions Essay", 
         "courseID": "101", 
         "teachersID": 126,
         "assignmentDueDate": "2023-04-25",
         "assignmentDueTime": "12:00:00",
-        "assignmentDescription": "filler assignemnt description",
+        "assignmentDescription": "Write an essay on a particular potion, its ingredients, preparation, and usage.",
         "dayAssigned": "January 15th, 2023",
-        "assignmentWorth": 5
+        "assignmentWorth": "15pts"
         
         
     },
     {
-        "assignmentName": "Essay Two", 
+        "assignmentName": "Herbology Report", 
         "courseID": "102", 
         "teachersID": 126,
         "assignmentDueDate": "2023-04-22",
         "assignmentDueTime": "12:00:00",
-        "assignmentDescription": "filler assignemnt description",
+        "assignmentDescription": "Write a report on a particular magical plant, its properties, uses, and growing conditions.",
         "dayAssigned": "January 15th, 2023",
-        "assignmentWorth": 5
+        "assignmentWorth": "25pts"
         
         
     },
     {
-        "assignmentName": "Essay Three", 
+        "assignmentName": "Charms Incantation Test", 
         "courseID": "103", 
         "teachersID": 126,
         "assignmentDueDate": "2023-04-29",
         "assignmentDueTime": "12:00:00",
-        "assignmentDescription": "filler assignemnt description",
+        "assignmentDescription": "Demonstrate their knowledge of various incantations by performing them correctly in front of the class.",
         "dayAssigned": "January 15th, 2023",
-        "assignmentWorth": 5
+        "assignmentWorth": "20pts"
         
         
     },
     {
-        "assignmentName": "Essay Four", 
+        "assignmentName": "History of Magic Essay", 
         "courseID": "104", 
         "teachersID": 126,
         "assignmentDueDate": "2023-04-26",
         "assignmentDueTime": "12:00:00",
-        "assignmentDescription": "filler assignemnt description",
+        "assignmentDescription": "Write an essay on a particular event, person or era in wizarding history.",
         "dayAssigned": "January 15th, 2023",
-        "assignmentWorth": 5
+        "assignmentWorth": "30pts"
         
         
     }
