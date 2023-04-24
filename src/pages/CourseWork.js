@@ -69,6 +69,23 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
     }
   };
 
+  const handleDeleteAssignment = async (assignment) => {
+    try {
+      const response = await fetch(`/api/assignments/${assignment.assignmentName}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        setAssignments(responseData.data);
+      } else {
+        throw new Error('Error deleting assignment');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   return (
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} />
@@ -86,101 +103,49 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
               <div key={courses.courseID} className="coursework-card">
                 <h3>{courses.courseName}</h3>
                 <hr />
-                <div className="assignments-container"> {/* Add this div */}
+                <div className="assignments-container">
                   {courseAssignments.map((assignment) => (
-                    <div key={assignment.assignmentName}>
-                      <h3>{assignment.assignmentName}</h3>
-                      <p>
-                        Due date: {assignment.assignmentDueDate}{' '}
-                        {assignment.assignmentDueTime}
-                      </p>
-                      <p>Description: {assignment.assignmentDescription}</p>
-                      <p>Worth: {assignment.assignmentWorth}</p>
+                    <div key={assignment.assignmentName} className="assignment">
+                      <h4>{assignment.assignmentName}</h4>
+                      <p>Due: {assignment.assignmentDueDate} {assignment.assignmentDueTime}</p>
+                      <p>Worth: {assignment.assignmentWorth} points</p>
+                      <p>{assignment.assignmentDescription}</p>
+                      {userRole === 'student' && (
+                        <form onSubmit={handleSubmit}>
+                          <input type="file" id="not" accept=".doc,.docx,.pdf" />
+                          <button type="submit">Submit</button>
+                        </form>
+                      )}
+                      {userRole === 'teacher' && (
+                        <button onClick={() => handleDeleteAssignment(assignment)}>
+                          Delete Assignment
+                        </button>
+                      )}
                     </div>
                   ))}
-                </div> {/* Close the div */}
+                </div>
+                {userRole === 'teacher' && (
+                  <div className="add-assignment">
+                    <form onSubmit={handleAddAssignment}>
+                      <input type="hidden" name="course" value={courses.courseID} />
+                      <input type="hidden" name="teachersID" value={userId} />
+                      <input type="text" name="assignmentName" placeholder="Assignment Name" required />
+                      <input type="date" name="duedate" placeholder="Due Date" required />
+                      <input type="time" name="duetime" placeholder="Due Time" required />
+                      <input type="number" name="pointsworth" placeholder="Points Worth" required />
+                      <textarea name="description" placeholder="Description" required></textarea>
+                      <button type="submit">Add Assignment</button>
+                    </form>
+                  </div>
+                )}
               </div>
             );
-            
         })}
       </div>
-            {userRole === 'student' && (
-    <div className='submission'>
-      Would you like to submit an assignment?
-      If so select the assignment you are submitting
-      <label htmlFor="assignment">Choose an assignment:</label>
-      <select name="assignment" id="assignmentSelect">
-        {assignments
-          .filter(assignment => {
-            // check if this assignment's course is in the user's courses
-            const courseIds = courses.map(courses => courses.courseID);
-            return courseIds.includes(assignment.courseID);
-          })
-          .map(assignment => (
-            <option key={assignment.assignmentName} value={assignment.assignmentName} id="dropdown">
-              {assignment.assignmentName}
-            </option>
-          ))}
-      </select>
-
-      <form className="not" id="not" onSubmit={handleSubmit}>
-        <h1>Submit Assignment</h1>
-        <textarea placeholder="Enter your writing here" id="assignmentText" />
-        <button type="submitbutton" id="submitAssignment">Submit</button>
-      </form>
-
-      <div id="submitMessage"></div>
-    </div>
-
-  )}
-  {userRole === 'teacher' && (
-      <div className='teachsub'>
-
-        Would you like to post an assignment? 
-        <h2>Complete the following</h2>
-        
-        <form onSubmit={handleAddAssignment}>
-        <div className='rightSide5'>
-        <label for="course" class="form-label">What course is this for?</label>
-        <select name="course" id="course">
-        {courses.map(course => (
-          <option key={course.courseID} value={course.courseID}>
-            {course.courseName}
-          </option>
-        ))}
-        </select>
-
-        
-        <label for='assignmentName' class="form-label" id = "nam">Assignment Name:</label>
-        <input type="text" id='assignmentName' name="assignmentName" placeholder="Assignment Name" />
-        </div> 
-        <div className='rightSide3'> 
-        <label for='teachersID' class="form-label"> School ID</label>
-        <input type="text" id='teachersID' name="teachersID" placeholder="ID" />
-        
-        
-        <label for='duedate' class="form-label">Assignment Due Date</label>
-        <input type="text" id='duedate' name="duedate" placeholder="YYYY-MM-DD" />
-        </div>
-        <div className='rightSide2'>
-        <label for="duetime" class="form-label">Assignment Time Due</label>
-        <input type="text" id='duetime' name="duetime" placeholder="HH-MM-SS" />
-        
-        
-        <label for='pointsworth' class="form-label"> Assignment Points Worth</label>
-        <input type="text" id='pointsworth' name="pointsworth" placeholder="00pts" />
-        </div>
-        <div className='leftSide'>
-        <label for='description ' class="form-label">Assignment Description</label>
-        <textarea type="text" id='description' name="description" placeholder="description" />
-        
-        <button type="submitbutton" id="submitAssignment">Submit</button>
-        </div>
-  </form>
-      </div>
-      
-      )}
+      <p id="submitMessage"></p>
     </div>
   );
 }
+
 export default CourseWork;
+

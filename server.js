@@ -1,9 +1,11 @@
 const express = require('express');
 const fs = require('fs');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
 const port = 3001;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/api/assignments', (req, res) => {
@@ -23,6 +25,21 @@ app.post('/api/assignments', (req, res) => {
   data.push(newAssignment);
   fs.writeFileSync('./src/data/assignments.json', JSON.stringify(data, null, 2));
   res.status(200).json({ message: 'Assignment added successfully' });
+});
+
+app.delete('/api/assignments/:assignmentName', (req, res) => {
+  const assignmentName = req.params.assignmentName;
+  const data = JSON.parse(fs.readFileSync('./src/data/assignments.json', 'utf-8'));
+
+  const index = data.findIndex(assignment => assignment.assignmentName === assignmentName);
+  
+  if (index !== -1) {
+    data.splice(index, 1);
+    fs.writeFileSync('./src/data/assignments.json', JSON.stringify(data, null, 2));
+    res.status(200).json({ message: 'Assignment deleted successfully', data });
+  } else {
+    res.status(400).json({ message: 'Assignment not found' });
+  }
 });
 
 app.post('/api/register', (req, res) => {
@@ -54,3 +71,4 @@ app.post('/api/drop', (req, res) => {
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
+

@@ -4,7 +4,7 @@
         "teachersID": 126,
         "studentID": 125,
         "grade": "A",
-        "studentName": "John Doe"
+        "studentName": "Prince"
         
         
     },
@@ -14,7 +14,7 @@
         "teachersID": 126,
         "studentID": 124,
         "grade": "B",
-        "studentName": "John Doe"
+        "studentName": "Jamie"
         
         
     },
@@ -23,7 +23,7 @@
         "teachersID": 126,
         "studentID": 125,
         "grade": "C",
-        "studentName": "John Doe"
+        "studentName": "Prince"
         
         
     },
@@ -32,7 +32,7 @@
         "teachersID": 126,
         "studentID": 123,
         "grade": "D",
-        "studentName": "John Doe"
+        "studentName": "Kyle"
         
         
     },
@@ -41,7 +41,7 @@
         "teachersID": 126,
         "studentID": 124,
         "grade": "F",
-        "studentName": "John Doe"
+        "studentName": "Jamie"
         
         
     },
@@ -50,7 +50,7 @@
         "teachersID": 126,
         "studentID": 124,
         "grade": "A",
-        "studentName": "John Doe"
+        "studentName": "Jamie"
         
         
     },
@@ -59,7 +59,7 @@
         "teachersID": 126,
         "studentID": 125,
         "grade": "B" ,
-        "studentName": "John Doe"
+        "studentName": "Prince"
     }
    
     
