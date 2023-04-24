@@ -8,7 +8,6 @@ import CourseData from '../data/courses.json';
 function CourseWork({ userId, userRole, setCurrentPage}) {
   const [courses, setCourses] = useState([]);
   const [assignments, setAssignments] = useState([]);
-  const [buttonClicked, setButtonClicked] = useState(false);
 
   useEffect(() => {
     // Get courses
@@ -25,24 +24,26 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
     setAssignments(userAssignments);
   }, [userRole, userId]);
 
-  const handleButtonClick = () => {
 
-    setButtonClicked(true);
-  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    document.getElementById("not").style.display = "none";
+    document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
+  }
 
   return (
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} />
       <div className="coursework-list">
-        {courses.map(course => {
+        {courses.map(courses => {
           // Get assignments for this course and sort by due date
           const courseAssignments = assignments
-          .filter(assignment => assignment.courseID === course.courseID)
+          .filter(assignment => assignment.courseID === courses.courseID)
           .sort((a, b) => new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate));
 
           return (
-            <div key={course.courseID} className="coursework-card">
-              <h4>{course.courseName}</h4>
+            <div key={courses.courseID} className="coursework-card">
+              <h4>{courses.courseName}</h4>
               {courseAssignments.map(assignment => (
                 <div key={assignment.assignmentName}>
                   <h4>{assignment.assignmentName}</h4>
@@ -56,23 +57,34 @@ function CourseWork({ userId, userRole, setCurrentPage}) {
           );
         })}
       </div>
+      {userRole === 'student' && (
       <div className='submission'>
         Would you like to submit an assignment? 
         If so select the assignment you are submitting 
         <label htmlFor="assignment">Choose an assignment:</label>
-        <select name="assignment" id="assignment">
-          {assignments.map(assignment => (
-            <option key={assignment.assignmentName} value={assignment.assignmentName}>{assignment.assignmentName}</option>
-          ))}
+        <select name="assignment" id="assignmentSelect">
+          {assignments
+            .filter(assignment => {
+              // check if this assignment's course is in the user's courses
+              const courseIds = courses.map(courses => courses.courseID);
+              return courseIds.includes(assignment.courseID);
+            })
+            .map(assignment => (
+              <option key={assignment.assignmentName} value={assignment.assignmentName} id="dropdown">
+                {assignment.assignmentName}
+              </option>
+            ))}
         </select>
 
-        <form className="not" id="not">
-        <h1>Submit Assignment</h1>
-        <textarea placeholder="Enter your writing here" id="assingmenttext" />
-        <button type="submitbutton" id="submitAssignment">Submit</button>
-       
-      </form>
+        <form className="not" id="not" onSubmit={handleSubmit}>
+          <h1>Submit Assignment</h1>
+          <textarea placeholder="Enter your writing here" id="assignmentText" />
+          <button type="submitbutton" id="submitAssignment">Submit</button>
+        </form>
+
+        <div id="submitMessage"></div>
       </div>
+      )}
     </div>
   );
 }
