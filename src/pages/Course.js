@@ -1,4 +1,3 @@
-// Course.js
 import { useState, useEffect } from 'react';
 import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Course.css';
@@ -23,32 +22,35 @@ function Course({ setCurrentPage, userRole, userId }) {
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />
       <h3 className="Course-welcome-title">Registered Courses:</h3>
-      <h3 className="course-register-lead">Not registered for all of your course?</h3>
-      <button className="registration-button" onClick={() => setCurrentPage("registration")}>
-        Register Here
-      </button>
-      {courses.length === 0 ? (
-        <p>Currently you're not registered for any courses</p>
-      ) : (
-        <div className="course-list">
-          {courses.map(course => (
-            <div key={course.courseID} className="course-card">
-              <h4>{course.courseName}</h4>
-              <p>{course.description}</p>
-              <p> Instructor: {course.teacher}</p>
-              <p>Classroom: {course.classRoom}</p>
-              <p> Your Classes: {course.classRoom} </p>
-              <h4>Days of the class</h4>
-              <hr />
-              <p>{course.classDays}</p>
-              <p>{course.classTime}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      <div className="course-container">
+        {courses.length === 0 ? (
+          <p>Currently you're not registered for any courses</p>
+        ) : (
+          <div className="course-list">
+            {courses.map(course => (
+              <div key={course.courseID} className="course-card">
+                <h4>{course.courseName}</h4>
+                <p>{course.description}</p>
+                <p> Instructor: {course.teacher}</p>
+                <p>Classroom: {course.classRoom}</p>
+                <p> Your Classes: {course.classRoom} </p>
+                <h4>Days of the class</h4>
+                <hr />
+                <p>{course.classDays}</p>
+                <p>{course.classTime}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="register-container">
+        <h3 className="course-register-lead">Not registered for all of your courses?</h3>
+        <button className="registration-button" onClick={() => setCurrentPage("registration")}>
+          Register Here
+        </button>
+      </div>
     </div>
   );
 }
 
 export default Course;
-
