@@ -23,6 +23,10 @@ function Course({ setCurrentPage, userRole, userId }) {
     }
   }, [userRole, userId]);
 
+  const getGradesForTeacher = (courseId) => {
+    return GradeData.filter(grade => grade.courseID === courseId);
+  };
+
   const getGrade = (courseId, teachersId) => {
     if (userRole === 'student') {
       const grade = grades.find(grade => grade.courseID === courseId && grade.studentID === userId);
@@ -32,13 +36,13 @@ function Course({ setCurrentPage, userRole, userId }) {
         return <p>Grade not in yet</p>;
       }
     } else if (userRole === 'teacher' && teachersId === userId) {
-      const courseGrades = grades.filter(grade => grade.courseID === courseId);
-      if (courseGrades.length > 0) {
+      const courseGradesList = getGradesForTeacher(courseId);
+      if (courseGradesList.length > 0) {
         return (
           <div>
             <h4>Grades:</h4>
             <ul>
-              {courseGrades.map(grade => (
+              {courseGradesList.map(grade => (
                 <li key={grade.studentID}>{grade.studentName}: {grade.grade}</li>
               ))}
             </ul>
@@ -47,9 +51,11 @@ function Course({ setCurrentPage, userRole, userId }) {
       } else {
         return <p>No grades yet</p>;
       }
+    } else {
+      return null;
     }
-  
-};
+  };
+
   const getTeacherName = (teacherId) => {
     const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
     return teacher ? teacher.name : 'Unknown';
@@ -70,12 +76,12 @@ function Course({ setCurrentPage, userRole, userId }) {
                 <p>{course.description}</p>
                 <p> Instructor: {getTeacherName(course.teachersID)}</p>
                 <p>Classroom: {course.classRoom}</p>
-                <p> Your Classes: {course.classRoom} </p>
+                <p>Classroom: {course.classRoom}</p>
                 <h4>Meeting Times:</h4>
                 <hr />
                 <p>{course.classDays}</p>
                 <p>{course.classTime}</p>
-                {getGrade(course.courseID)}
+                {getGrade(course.courseID, course.teachersID)}
               </div>
             ))}
           </div>
