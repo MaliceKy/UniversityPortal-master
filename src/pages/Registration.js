@@ -1,6 +1,7 @@
 import React from 'react';
 import "../styles/Registration.css";
 import NavigationButtons from '../components/NavigationButtons';
+import CourseData from '../data/courses.json';
 
 
 function Registration({ currentUser, setCurrentPage, userId }) {
