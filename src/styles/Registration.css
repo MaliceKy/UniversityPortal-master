@@ -62,12 +62,12 @@
   line-height: 1.5;
   margin-bottom: 10px;
   margin-top: 10;
-  color: #333333;
+  color: #000000;
 }
 
 /* Styling for the register button within the course cards */
 .course-cardReg button {
-  background: #463434;
+  background: #00a32e;
   color: #ffffff;
   font-size: 16px;
   padding: 10px 15px;
@@ -78,7 +78,7 @@
 
 /* Hover effect for the register button within the course cards */
 .course-cardReg button:hover {
-  background: #654141;
+  background: #0b7d39;
 }
 
 /* Description styling */
@@ -109,4 +109,16 @@ h4 {
   color: #000000;
 }
 
+.drop-button {
+  background-color: #03770d;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
 

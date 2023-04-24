@@ -11,6 +11,7 @@ import Student from './pages/Student';
 import CourseWork from './pages/CourseWork';
 import Registration from './pages/Registration';
 import Announcements from './pages/Announcements';
+import Dropping from './pages/Dropping';
 
 
 function App() {
@@ -43,8 +44,10 @@ function App() {
     content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'announcements') {
     content = <Announcements currentUser={userId} setCurrentPage={setCurrentPage} />;
+  } else if (currentPage === 'dropping') {
+    content = <Dropping currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
-
+  
   return (
     <div className='App'>
       <Header isSchool={currentPage === 'school'} />

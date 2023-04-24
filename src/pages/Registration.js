@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Registration({ currentUser, setCurrentPage }) {
+function Dropping({ currentUser, setCurrentPage }) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
   useEffect(() => {
@@ -80,8 +80,13 @@ function Registration({ currentUser, setCurrentPage }) {
           {courseButtons}
         </div>
       </div>
+      <button onClick={() => setCurrentPage('dropping')} className="drop-button">
+  Drop Course(s)
+</button>
+
     </div>
+    
   );
 }
 
-export default Registration;
+export default Dropping;

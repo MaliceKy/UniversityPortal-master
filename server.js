@@ -33,6 +33,19 @@ app.post('/api/register', (req, res) => {
   }
 });
 
+app.post('/api/drop', (req, res) => {
+  const { courseId, userId } = req.body;
+  const data = JSON.parse(fs.readFileSync('./src/data/courses.json', 'utf-8'));
+  const course = data.find(c => c.courseID === courseId);
+  if (course) {
+    course.studentsEnrolledArray = course.studentsEnrolledArray.filter(id => id !== userId);
+    fs.writeFileSync('./src/data/courses.json', JSON.stringify(data, null, 2));
+    res.status(200).json({ message: 'Dropping successful' });
+  } else {
+    res.status(400).json({ message: 'Invalid course ID' });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
