@@ -1,26 +1,74 @@
-.registered-courses-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #03770d;
-  margin-bottom: 1rem;
+/* Course.css */
+.Course-welcome-title {
+  position: absolute;
+  font-family: "Bluu Next Bold", Papyrus, fantasy;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff; /* Updated to make text visible */
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
 }
 
+.course-register-lead {
+  position: absolute;
+  font-family: "Bluu Next Bold", Papyrus, fantasy;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.632);
+  margin: 0;
+  max-width: 80%;
+  animation-name: reveal;
+  animation-duration: 2s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.registration-button {
+  position: absolute;
+  top: 85%; /* Adjust this value to place the button below the text */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #03770d;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.registration-button:hover {
+  background-color: #02560a;
+}
 
 .course-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 1rem;
+  margin-top: 200px; /* Add a top margin to push the course cards down */
+  min-width: 800px; /* Set a minimum width for the container */
 }
 
 .course-card {
   background-color: white;
-  border: 1px solid #ccc;
+  border: 2px solid #000000;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 4px rgba(0, 0, 0, 0.1);
   width: 250px;
+  flex-shrink: 0; /* Prevent the cards from shrinking */
 }
+
 
 
 

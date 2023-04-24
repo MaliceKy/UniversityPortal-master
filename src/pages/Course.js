@@ -19,11 +19,14 @@ function Course({ setCurrentPage, userRole, userId }) {
     }
   }, [userRole, userId]);
 
-  /* the coursedata being used here is all random just to use as filler data*/
   return (
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />
-      <h3>Registered Courses:</h3>
+      <h3 className="Course-welcome-title">Registered Courses:</h3>
+      <h3 className="course-register-lead">Not registered for all of your course?</h3>
+      <button className="registration-button" onClick={() => setCurrentPage("registration")}>
+        Register Here
+      </button>
       {courses.length === 0 ? (
         <p>Currently you're not registered for any courses</p>
       ) : (
@@ -48,3 +51,4 @@ function Course({ setCurrentPage, userRole, userId }) {
 }
 
 export default Course;
+
