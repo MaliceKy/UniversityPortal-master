@@ -9,8 +9,13 @@
     text-align: center;
     width: 55%;
     height: 30%;
+    display: inline-block;
   }
 
 #description {
     margin-top: 15px; 
+    
+    
 }
+
+

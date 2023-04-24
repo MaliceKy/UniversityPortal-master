@@ -12,11 +12,11 @@
 
 .course-container {
   position: absolute;
-  top: 25%;
+  top: 30%;
   left: 0;
   right: 0;
-  min-height: 70%;
-  max-height: 50%;
+  min-height: 53%;
+  max-height: 10%;
   overflow-y: auto;
 }
 
