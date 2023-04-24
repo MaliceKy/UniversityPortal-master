@@ -117,9 +117,9 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
                         </form>
                       )}
                       {userRole === 'teacher' && (
-                        <button onClick={() => handleDeleteAssignment(assignment)}>
-                          Delete Assignment
-                        </button>
+                        <button className="delete-assignment" onClick={() => handleDeleteAssignment(assignment)}>
+                        Delete Assignment
+                      </button>
                       )}
                     </div>
                   ))}
@@ -134,7 +134,7 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
                       <input type="time" name="duetime" placeholder="Due Time" required />
                       <input type="number" name="pointsworth" placeholder="Points Worth" required />
                       <textarea name="description" placeholder="Description" required></textarea>
-                      <button type="submit">Add Assignment</button>
+                      <button type="submit" class="add-assignment-btn">Add Assignment</button>
                     </form>
                   </div>
                 )}

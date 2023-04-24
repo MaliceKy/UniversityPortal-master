@@ -61,3 +61,32 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+.delete-assignment {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-assignment:hover {
+  background-color: #e53935;
+}
+
+.add-assignment-btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.add-assignment-btn:hover {
+  background-color: #3e8e41;
+}
+
