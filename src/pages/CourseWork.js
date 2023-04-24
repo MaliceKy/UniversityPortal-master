@@ -8,8 +8,6 @@ import CourseData from '../data/courses.json';
 function CourseWork({ userId, userRole, setCurrentPage }) {
   const [courses, setCourses] = useState([]);
   const [assignments, setAssignments] = useState([]);
-  
-  
 
   useEffect(() => {
     // Get courses
@@ -41,6 +39,36 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
     document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
   }
 
+  const handleAddAssignment = async (event) => {
+    event.preventDefault();
+    const newAssignment = {
+      assignmentName: event.target.assignmentName.value,
+      teachersID: event.target.teachersID.value,
+      assignmentDueDate: event.target.duedate.value,
+      assignmentDueTime: event.target.duetime.value,
+      assignmentWorth: event.target.pointsworth.value,
+      assignmentDescription: event.target.description.value,
+      courseID: event.target.course.value,
+    };
+  
+    try {
+      const response = await fetch('/api/assignments', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newAssignment),
+      });
+  
+      if (response.ok) {
+        document.getElementById("submitMessage").innerHTML = "Assignment added successfully!";
+        setAssignments([...assignments, newAssignment]);
+      } else {
+        throw new Error("Error adding assignment");
+      }
+    } catch (error) {
+      document.getElementById("submitMessage").innerHTML = error.message;
+    }
+  };
+
   return (
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} />
@@ -71,76 +99,75 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
             </div>
           );
         })}
-         </div>
+      </div>
       {userRole === 'student' && (
-        <div className='submission'>
-          Would you like to submit an assignment?
-          If so select the assignment you are submitting
-          <label htmlFor="assignment">Choose an assignment:</label>
-          <select name="assignment" id="assignmentSelect">
-            {assignments
-              .filter(assignment => {
-                // check if this assignment's course is in the user's courses
-                const courseIds = courses.map(courses => courses.courseID);
-                return courseIds.includes(assignment.courseID);
-              })
-              .map(assignment => (
-                <option key={assignment.assignmentName} value={assignment.assignmentName} id="dropdown">
-                  {assignment.assignmentName}
-                </option>
-              ))}
-          </select>
+    <div className='submission'>
+      Would you like to submit an assignment?
+      If so select the assignment you are submitting
+      <label htmlFor="assignment">Choose an assignment:</label>
+      <select name="assignment" id="assignmentSelect">
+        {assignments
+          .filter(assignment => {
+            // check if this assignment's course is in the user's courses
+            const courseIds = courses.map(courses => courses.courseID);
+            return courseIds.includes(assignment.courseID);
+          })
+          .map(assignment => (
+            <option key={assignment.assignmentName} value={assignment.assignmentName} id="dropdown">
+              {assignment.assignmentName}
+            </option>
+          ))}
+      </select>
 
-          <form className="not" id="not" onSubmit={handleSubmit}>
-            <h1>Submit Assignment</h1>
-            <textarea placeholder="Enter your writing here" id="assignmentText" />
-            <button type="submitbutton" id="submitAssignment">Submit</button>
-          </form>
+      <form className="not" id="not" onSubmit={handleSubmit}>
+        <h1>Submit Assignment</h1>
+        <textarea placeholder="Enter your writing here" id="assignmentText" />
+        <button type="submitbutton" id="submitAssignment">Submit</button>
+      </form>
 
-          <div id="submitMessage"></div>
-        </div>
+      <div id="submitMessage"></div>
+    </div>
 
-      )}
-      {userRole === 'teacher' && (
-      <div className='submission'>
-        Would you like to post an assignment? 
-        <h2>Complete the following</h2>
-        <form action="/action_page.php">
-        <label for="country">What course is this for?</label>
+  )}
+  {userRole === 'teacher' && (
+    <div className='submission'>
+      Would you like to post an assignment? 
+      <h2>Complete the following</h2>
+      <form onSubmit={handleAddAssignment}>
+        <label htmlFor="country">What course is this for?</label>
         <select name="course" id="courseselect">
-        {courses.map(course => (
-          <option key={course.courseID} value={course.courseID}>
-            {course.courseName}
-          </option>
-        ))}
+          {courses.map(course => (
+            <option key={course.courseID} value={course.courseID}>
+              {course.courseName}
+            </option>
+          ))}
         </select>
 
-        <label for="assignmentName">Assignment Name:</label>
+        <label htmlFor="assignmentName">Assignment Name:</label>
         <input type="text" id="assignmentName" name="firstname" placeholder="Assignment Name" />
 
-        <label for="teachersID">School ID</label>
+        <label htmlFor="teachersID">School ID</label>
         <input type="text" id="teachersID" name="lastname" placeholder="ID" />
 
-        <label for="duedate">Assignment Due Date</label>
+        <label htmlFor="duedate">Assignment Due Date</label>
         <input type="text" id="duedate" name="lastname" placeholder="YYYY-MM-DD" />
 
-        <label for="duetime">Assignment Time Due</label>
+        <label htmlFor="duetime">Assignment Time Due</label>
         <input type="text" id="duetime" name="lastname" placeholder="HH-MM-SS" />
 
-        <label for="pointsworth"> Assignment Points Worth</label>
+        <label htmlFor="pointsworth"> Assignment Points Worth</label>
         <input type="text" id="pointsworth" name="lastname" placeholder="00pts" />
 
-        <label for="description">Assignment Description</label>
-        <textarea type="text" id="duedate" name="lastname" placeholder="description" />
+        <label htmlFor="description">Assignment Description</label>
+        <textarea type="text" id="description" name="lastname" placeholder="description" />
         
         <button type="submitbutton" id="submitAssignment">Submit</button>
-  </form>
-      </div>
-      
-      )}
+      </form>
+      <div id="submitMessage"></div>
     </div>
-  );
+  )}
+</div>
+);
 }
 
 export default CourseWork;
-
