@@ -88,7 +88,6 @@ function Course({ setCurrentPage, userRole, userId }) {
                 <p>{course.description}</p>
                 <p> Instructor: {getTeacherName(course.teachersID)}</p>
                 <p>Classroom: {course.classRoom}</p>
-                <p>Classroom: {course.classRoom}</p>
                 <h4>Meeting Times:</h4>
                 <hr />
                 <p>{course.classDays}</p>
