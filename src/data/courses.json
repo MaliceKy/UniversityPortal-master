@@ -5,7 +5,7 @@
         "teacher": "Ding", 
         "teachersID": 126,
         "description": "Basics of wizardy1",
-        "studentsEnrolledArray" : [123, 124, 125], 
+        "studentsEnrolledArray" : [124, 125], 
         "classRoom" : 101,
         "classDays" : "Monday, Wednesday, Friday",
         "classTime" : "1:30pm to 2:30pm"
@@ -27,7 +27,7 @@
         "teacher": "Ding", 
         "teachersID": 126,
         "description": "Basics of Wizardry3",
-        "studentsEnrolledArray" : [123, 124, 125], 
+        "studentsEnrolledArray" : [123, 124], 
         "classRoom" : 103,
         "classDays" : "Monday, Wednesday, Friday",
         "classTime" : "8:00am to 9:00am"
@@ -44,7 +44,5 @@
         "classDays" : "Tuesday, Thursday",
         "classTime" : "10:00am to 11:30am"
     }
-    
-    
 ]
 

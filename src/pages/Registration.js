@@ -1,48 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/Registration.css";
 import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
+import UserData from '../data/login.json';
 
+function Registration({ currentUser, setCurrentPage }) {
+  const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
-function Registration({ currentUser, setCurrentPage, userId }) {
+  useEffect(() => {
+    const user = UserData.find(user => user.ID === currentUser);
+    const availableCourses = CourseData.filter(
+      course => !course.studentsEnrolledArray.includes(user.ID)
+    );
+    setUnregisteredCourses(availableCourses);
+  }, [currentUser]);
 
-    const courses = [
-        { button: 'Register for Dark Arts', course: 'Dark Arts', description1: 'Teacher: Dr. Snape - Schedule: MWF', courseID: 106},
-        { button: 'Register for Charms', course: 'Charms', description1: 'Teacher: Prof. Flitwick - Schedule: TTH', courseID: 108},
-        { button: 'Register for Potions ', course: 'Potions', description1: 'Teacher: Prof. Slughorn - Schedule: MWF', courseID: 107},
-        { button: 'Register for Xylomancy', course: 'Xylomancy', description1: 'Teacher: Prof. Trelawney - Schedule: TTH',courseID: 109},
-    ];
+  const handleCourseClick = (event) => {
+    // Your registration logic
+  };
 
-    const handleCourseClick = (event) => {
-      
-    };
+  const courseButtons = unregisteredCourses.map((course) => (
+    <div key={course.courseID} className="course-cardReg">
+      <h4>{course.courseName}</h4>
+      <p>{course.description}</p>
+      <p>Instructor: {course.teacher}</p>
+      <p>Classroom: {course.classRoom}</p>
+      <p>Course ID: {course.courseID}</p>
+      <h4>Meeting Times:</h4>
+      <hr />
+      <p>Class Days: {course.classDays}</p>
+      <p>Class Time: {course.classTime}</p>
+      <button
+        className="course-button"
+        onClick={handleCourseClick}
+        key={course.courseID}
+      >
+        Register for {course.courseName}
+      </button>
+    </div>
+  ));
 
-    const courseButtons = courses.map((course) => (
-      
-      <div key={course.button} className="course-cardReg">
-        <p>{course.course}</p>
-        <p className="description1">{course.description1}</p>
-        <button 
-          className="course-button" 
-          onClick={handleCourseClick}
-          key={course.button}
-        >
-          {course.button}
-        </button>
-      </div>
-    ));
-
-    return (
-      <div>
+  return (
+    <div>
       <NavigationButtons setCurrentPage={setCurrentPage} />
       <div className="registration-text" style={{ marginTop: '40px' }}>
         <h2>Register for classes!</h2>
-        <div className="course-list" style={{ marginTop: '100px' }}>
+        <div className="course-list" style={{ marginTop: '10px' }}>
           {courseButtons}
         </div>
       </div>
     </div>
-    );
+  );
 }
 
 export default Registration;
+

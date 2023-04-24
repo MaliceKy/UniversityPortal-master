@@ -34,7 +34,7 @@ function Course({ setCurrentPage, userRole, userId }) {
                 <p> Instructor: {course.teacher}</p>
                 <p>Classroom: {course.classRoom}</p>
                 <p> Your Classes: {course.classRoom} </p>
-                <h4>Days of the class</h4>
+                <h4>Meeting Times:</h4>
                 <hr />
                 <p>{course.classDays}</p>
                 <p>{course.classTime}</p>

@@ -1,51 +1,62 @@
+/* Main registration text styling */
 .registration-text {
   color: #ffffff;
   font-size: 32px;
   font-weight: bold;
   text-align: center;
   margin: 10px 0;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
- 
 }
 
+/* No margin for registration text h2 */
 .registration-text h2 {
-  margin: 0;
+  font-family: "Bluu Next Bold", Papyrus, fantasy;
+  top: 0%;
+  left: 50%;
+  color: #ffffff;
+  font-size: 2.5rem;
+  text-align: center;
+  text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Styling for registration text p */
 .registration-text p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 10px;
-  color: #cccccc;
+  color: #ffffff;
 }
 
-  .course-button {
-    background-color: #4CAF50; /* Green background */
-    border: none; /* Remove border */
-    color: white; /* White text */
-    padding: 12px 24px; /* Some padding */
-    text-align: center; /* Center text */
-    text-decoration: none; /* Remove underline */
-    display: flex; /* Make it a block element */
-    font-size: 16px; /* Set font size */
-    cursor: pointer; /* Add cursor on hover */
-    border-radius: 4px; /* Add rounded corners */
-  }
+/* Styling for the course registration button */
+.course-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
 
+/* Styling for the course cards in the registration page */
 .course-cardReg {
-  width: 310px;
+  width: 250px;
   height: 500px;
-  background: #eee7e7;
-  border: 1px solid #E1E1E1;
+  background: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  margin-right: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+/* Styling for paragraphs within the course cards */
 .course-cardReg p {
   font-size: 14px;
   line-height: 1.5;
@@ -54,22 +65,48 @@
   color: #333333;
 }
 
+/* Styling for the register button within the course cards */
 .course-cardReg button {
   background: #463434;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background .3s ease-in-out;
 }
 
+/* Hover effect for the register button within the course cards */
 .course-cardReg button:hover {
   background: #654141;
 }
+
+/* Description styling */
 .course-cardReg .description1 {
   position: absolute;
   bottom: 130px;
   font-weight: bold;
 }
+
+/* Styling for the course list container */
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #000000;
+  height: 1px;
+  margin: 1px 0;
+}
+
+h4 {
+  font-weight: bold; /* This will make the text bold */
+  font-size: 20px;   /* Adjust the font size */
+  color: #000000;
+}
+
+
