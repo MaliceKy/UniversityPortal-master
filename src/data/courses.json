@@ -7,8 +7,7 @@
     "description": "Basics of wizardy1",
     "studentsEnrolledArray": [
       124,
-      125,
-      123
+      125
     ],
     "classRoom": 101,
     "classDays": "Monday, Wednesday, Friday",
@@ -35,8 +34,7 @@
     "teachersID": 126,
     "description": "Basics of Wizardry3",
     "studentsEnrolledArray": [
-      124,
-      123
+      124
     ],
     "classRoom": 103,
     "classDays": "Monday, Wednesday, Friday",
@@ -49,7 +47,6 @@
     "teachersID": 126,
     "description": "Basics of WIzardry4",
     "studentsEnrolledArray": [
-      123,
       124,
       125
     ],
