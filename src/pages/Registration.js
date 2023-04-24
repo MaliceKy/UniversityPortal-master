@@ -16,7 +16,7 @@ function Registration({ currentUser, setCurrentPage }) {
   }, [currentUser]);
 
   const handleCourseClick = (event) => {
-    // Your registration logic
+    
   };
 
   const courseButtons = unregisteredCourses.map((course) => (

@@ -8,6 +8,8 @@ import CourseData from '../data/courses.json';
 function CourseWork({ userId, userRole, setCurrentPage }) {
   const [courses, setCourses] = useState([]);
   const [assignments, setAssignments] = useState([]);
+  
+  
 
   useEffect(() => {
     // Get courses
@@ -35,42 +37,9 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    document.getElementById('not').style.display = 'none';
-    document.getElementById('submitMessage').innerHTML =
-      'Thank you for your submission!';
-  };
-
-  const handleAddAssignment = async (event) => {
-    event.preventDefault();
-
-    const newAssignment = {
-      assignmentName: document.getElementById('assignmentName').value,
-      courseID: document.getElementById('courseselect').value,
-      teachersID: parseInt(document.getElementById('teachersID').value),
-      assignmentDueDate: document.getElementById('duedate').value,
-      assignmentDueTime: document.getElementById('duetime').value,
-      assignmentWorth: parseInt(document.getElementById('pointsworth').value),
-      assignmentDescription: document.getElementById('description').value,
-    };
-
-    try {
-      const response = await fetch('http://localhost:3001/add-assignment', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newAssignment),
-      });
-
-      if (response.ok) {
-        alert('Assignment added successfully!');
-      } else {
-        alert('Error adding the assignment.');
-      }
-    } catch (error) {
-      console.error('Error adding the assignment:', error);
-    }
-  };
+    document.getElementById("not").style.display = "none";
+    document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
+  }
 
   return (
     <div>
@@ -133,41 +102,41 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
 
       )}
       {userRole === 'teacher' && (
-        <div className='submission'>
-          Would you like to post an assignment?
-          <h2>Complete the following</h2>
-          <form onSubmit={handleAddAssignment}>
-            <label htmlFor="course">What course is this for?</label>
-            <select name="course" id="courseselect">
-              {courses.map(course => (
-                <option key={course.courseID} value={course.courseID}>
-                  {course.courseName}
-                </option>
-              ))}
-            </select>
+      <div className='submission'>
+        Would you like to post an assignment? 
+        <h2>Complete the following</h2>
+        <form action="/action_page.php">
+        <label for="country">What course is this for?</label>
+        <select name="course" id="courseselect">
+        {courses.map(course => (
+          <option key={course.courseID} value={course.courseID}>
+            {course.courseName}
+          </option>
+        ))}
+        </select>
 
-            <label htmlFor="assignmentName">Assignment Name:</label>
-            <input type="text" id="assignmentName" name="firstname" placeholder="Assignment Name" />
+        <label for="assignmentName">Assignment Name:</label>
+        <input type="text" id="assignmentName" name="firstname" placeholder="Assignment Name" />
 
-            <label htmlFor="teachersID">School ID</label>
-            <input type="text" id="teachersID" name="lastname" placeholder="ID" />
+        <label for="teachersID">School ID</label>
+        <input type="text" id="teachersID" name="lastname" placeholder="ID" />
 
-            <label htmlFor="duedate">Assignment Due Date</label>
-            <input type="text" id="duedate" name="lastname" placeholder="YYYY-MM-DD" />
+        <label for="duedate">Assignment Due Date</label>
+        <input type="text" id="duedate" name="lastname" placeholder="YYYY-MM-DD" />
 
-            <label htmlFor="duetime">Assignment Time Due</label>
-            <input type="text" id="duetime" name="lastname" placeholder="HH-MM-SS" />
+        <label for="duetime">Assignment Time Due</label>
+        <input type="text" id="duetime" name="lastname" placeholder="HH-MM-SS" />
 
-            <label htmlFor="pointsworth"> Assignment Points Worth</label>
-            <input type="text" id="pointsworth" name="lastname" placeholder="00pts" />
+        <label for="pointsworth"> Assignment Points Worth</label>
+        <input type="text" id="pointsworth" name="lastname" placeholder="00pts" />
 
-            <label htmlFor="description">Assignment Description</label>
-            <textarea type="text" id="description" name="lastname" placeholder="description" />
-            
-            <button type="submit" id="submitAssignment">Submit</button>
-          </form>
-        </div>
-
+        <label for="description">Assignment Description</label>
+        <textarea type="text" id="duedate" name="lastname" placeholder="description" />
+        
+        <button type="submitbutton" id="submitAssignment">Submit</button>
+  </form>
+      </div>
+      
       )}
     </div>
   );

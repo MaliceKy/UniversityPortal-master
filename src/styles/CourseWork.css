@@ -19,7 +19,7 @@
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 250px;
-    margin-top: 5%;
+    margin-top: 2%;
 
   }
   
@@ -27,14 +27,15 @@
     margin-bottom: 20px;
   }
   
-  .container {
+.container {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 10px;
+    margin-top: -20%;
     flex-wrap: wrap; /* Add this line */
-
-  }
+    
+    
+}
   
   .submission {
     background-color: white;
@@ -47,6 +48,7 @@
     box-sizing: border-box;
     text-align: center;
     margin-top: 5%;
+
   }
   
 textarea {
@@ -57,6 +59,7 @@ textarea {
     margin-bottom: 5%;
     margin-left: 3%;
     margin-top: -20%; /* add this line */
+
 }
   
 .submitAssignment{
@@ -67,10 +70,72 @@ textarea {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+
+    
+
+    
+}
+
+.teachsub {
+  background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    padding-bottom: 10%;
+    margin: auto;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 5%;
+    width: 55%;
+    height: 30%;
     
 }
   
 .submitAssignment:hover {
     background-color: #3e8e41;
 }
+.rightSide {
+  float:left;
+}
+.leftSide {
+  float: right; 
+  margin-right: 15px;
+  margin-top: 7%;
+}
 
+.rightSide5 {
+  float:left;
+  margin-right: 8px;
+}
+
+.rightSide3 {
+  float:left;
+  margin-right: 8px;
+}
+
+.rightSide2 {
+  float:left;
+  margin-right: 8px;
+ 
+}
+
+.label4 {
+  color: black;
+  font-size: 10px;
+
+}
+input {
+  margin-bottom: 13px;
+}
+
+.form-label {
+  color: black;
+  font-size: 10px;
+  display: block;
+  text-align: center;
+}
+
+
+#nam {
+  margin-top: 13px; 
+}

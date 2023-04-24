@@ -1,52 +1,51 @@
 [
-  {
-    "assignmentName": "Essay One",
-    "courseID": "101",
-    "teachersID": 126,
-    "assignmentDueDate": "2023-04-25",
-    "assignmentDueTime": "12:00:00",
-    "assignmentDescription": "filler assignemnt description",
-    "dayAssigned": "January 15th, 2023",
-    "assignmentWorth": 5
-  },
-  {
-    "assignmentName": "Essay Two",
-    "courseID": "102",
-    "teachersID": 126,
-    "assignmentDueDate": "2023-04-22",
-    "assignmentDueTime": "12:00:00",
-    "assignmentDescription": "filler assignemnt description",
-    "dayAssigned": "January 15th, 2023",
-    "assignmentWorth": 5
-  },
-  {
-    "assignmentName": "Essay Three",
-    "courseID": "103",
-    "teachersID": 126,
-    "assignmentDueDate": "2023-04-29",
-    "assignmentDueTime": "12:00:00",
-    "assignmentDescription": "filler assignemnt description",
-    "dayAssigned": "January 15th, 2023",
-    "assignmentWorth": 5
-  },
-  {
-    "assignmentName": "Essay Four",
-    "courseID": "104",
-    "teachersID": 126,
-    "assignmentDueDate": "2023-04-26",
-    "assignmentDueTime": "12:00:00",
-    "assignmentDescription": "filler assignemnt description",
-    "dayAssigned": "January 15th, 2023",
-    "assignmentWorth": 5
-  },
-  {
-    "assignmentName": "Essay Five",
-    "courseID": "105",
-    "teachersID": 126,
-    "assignmentDueDate": "2023-05-01",
-    "assignmentDueTime": "12:00:00",
-    "assignmentDescription": "Another essay assignment.",
-    "dayAssigned": "April 24th, 2023",
-    "assignmentWorth": 10
-  }
+    {
+        "assignmentName": "Essay One", 
+        "courseID": "101", 
+        "teachersID": 126,
+        "assignmentDueDate": "2023-04-25",
+        "assignmentDueTime": "12:00:00",
+        "assignmentDescription": "filler assignemnt description",
+        "dayAssigned": "January 15th, 2023",
+        "assignmentWorth": 5
+        
+        
+    },
+    {
+        "assignmentName": "Essay Two", 
+        "courseID": "102", 
+        "teachersID": 126,
+        "assignmentDueDate": "2023-04-22",
+        "assignmentDueTime": "12:00:00",
+        "assignmentDescription": "filler assignemnt description",
+        "dayAssigned": "January 15th, 2023",
+        "assignmentWorth": 5
+        
+        
+    },
+    {
+        "assignmentName": "Essay Three", 
+        "courseID": "103", 
+        "teachersID": 126,
+        "assignmentDueDate": "2023-04-29",
+        "assignmentDueTime": "12:00:00",
+        "assignmentDescription": "filler assignemnt description",
+        "dayAssigned": "January 15th, 2023",
+        "assignmentWorth": 5
+        
+        
+    },
+    {
+        "assignmentName": "Essay Four", 
+        "courseID": "104", 
+        "teachersID": 126,
+        "assignmentDueDate": "2023-04-26",
+        "assignmentDueTime": "12:00:00",
+        "assignmentDescription": "filler assignemnt description",
+        "dayAssigned": "January 15th, 2023",
+        "assignmentWorth": 5
+        
+        
+    }
+    
 ]
