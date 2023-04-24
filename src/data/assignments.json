@@ -38,14 +38,5 @@
     "assignmentDescription": "filler assignemnt description",
     "dayAssigned": "January 15th, 2023",
     "assignmentWorth": 5
-  },
-  {
-    "assignmentName": "essay 6",
-    "teachersID": "126",
-    "assignmentDueDate": "2023-04-30",
-    "assignmentDueTime": "11:59:59",
-    "assignmentWorth": "5",
-    "assignmentDescription": "feaea",
-    "courseID": "101"
   }
 ]

@@ -53,11 +53,11 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
   const buttons = [
     { name: 'Profile', onClick: handleProfileClick },
     { name: 'Courses', onClick: handleCourseClick },
-    { name: 'Content', onClick: handleContentClick },
     { name: 'Events', onClick: () => handleButtonClick('Events') },
     { name: 'Assignments', onClick: handleAssignmentClick },
     { name: 'Grades', onClick: () => handleButtonClick('Grades') },
     { name: 'Announcements', onClick: () => handleAnnouncementClick('Announcements') },
+    { name: 'Accessibility', onClick: handleContentClick},
   ];
 
   return (
