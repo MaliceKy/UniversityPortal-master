@@ -90,3 +90,19 @@
   background-color: #3e8e41;
 }
 
+#studentSubmit{
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+
+#not {
+  margin-left: 40px; 
+}

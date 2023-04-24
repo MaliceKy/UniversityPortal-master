@@ -1,9 +1,14 @@
+/*gets assignment for user by checking what classes they are in using the userid and studentenrolledlist or teacher id from courses.json
+and displays the, students have option to submit assignments teafhers have option to creat assignment
+*/
 import { useState, useEffect } from 'react';
 import React from 'react';
 import '../styles/CourseWork.css';
 import NavigationButtons from '../components/NavigationButtons';
 import AssignmentData from '../data/assignments.json';
 import CourseData from '../data/courses.json';
+
+
 
 function CourseWork({ userId, userRole, setCurrentPage }) {
   const [courses, setCourses] = useState([]);
@@ -94,10 +99,7 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
           // Get assignments for this course and sort by due date
           const courseAssignments = assignments
             .filter((assignment) => assignment.courseID === courses.courseID)
-            .sort(
-              (a, b) =>
-                new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)
-            );
+            
 
             return (
               <div key={courses.courseID} className="coursework-card">
@@ -107,13 +109,14 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
                   {courseAssignments.map((assignment) => (
                     <div key={assignment.assignmentName} className="assignment">
                       <h4>{assignment.assignmentName}</h4>
-                      <p>Due: {assignment.assignmentDueDate} {assignment.assignmentDueTime}</p>
+                      <p>Due: {assignment.assignmentDueDate}</p>
+                      <p> at {assignment.assignmentDueTime}</p>
                       <p>Worth: {assignment.assignmentWorth} points</p>
                       <p>{assignment.assignmentDescription}</p>
                       {userRole === 'student' && (
                         <form onSubmit={handleSubmit}>
                           <input type="file" id="not" accept=".doc,.docx,.pdf" />
-                          <button type="submit">Submit</button>
+                          <button type="submit" id="studentSubmit">Submit</button>
                         </form>
                       )}
                       {userRole === 'teacher' && (
