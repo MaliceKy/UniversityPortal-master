@@ -26,9 +26,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     setCurrentPage('accessibility');
   };
 
-  const handleButtonClick = (buttonName) => {
-    console.log(`${buttonName} button clicked`);
-  };
+ 
 
   useEffect(() => {
     const handleResize = () => {
@@ -48,9 +46,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
   const buttons = [
     { name: 'Profile', onClick: handleProfileClick },
     { name: 'Courses', onClick: handleCourseClick },
-    { name: 'Events', onClick: () => handleButtonClick('Events') },
     { name: 'Assignments', onClick: handleAssignmentClick },
-    { name: 'Grades', onClick: () => handleButtonClick('Grades') },
     { name: 'Announcements', onClick: () => handleAnnouncementClick('Announcements') },
     { name: 'Accessibility', onClick: () => handleAccessabilityClick('Accessibility')},
   ];

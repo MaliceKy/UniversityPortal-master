@@ -1,7 +1,13 @@
+ /** @param {Object} props - The props object that contains the function setCurrentPage to handle the click event of the "Portal" button.
+@param {function} props.setCurrentPage - The function that updates the current page to the "login" page when the "Portal" button is clicked.
+@returns {JSX.Element} A JSX element that represents the School component.
+@example **/
+
 import React from 'react';
 import Footer from '../components/Footr';
 import ClassRoom1 from '../images/ClassRoom1.jpg';
 import '../styles/School.css';
+
 
 function School({ setCurrentPage }) {
   const handleLoginClick = () => {
