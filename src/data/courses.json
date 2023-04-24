@@ -3,6 +3,7 @@
         "courseName": "Wizard101", 
         "courseID": "101", 
         "teacher": "Ding", 
+        "teachersID": 126,
         "description": "Basics of wizardy1",
         "studentsEnrolledArray" : [123, 124, 125], 
         "classRoom" : 101,
@@ -13,6 +14,7 @@
         "courseName": "Wizard102", 
         "courseID": "102", 
         "teacher": "Ding", 
+        "teachersID": 126,
         "description": "Basics of Wizardry2",
         "studentsEnrolledArray" : [123, 125], 
         "classRoom" : 102,
@@ -23,6 +25,7 @@
         "courseName": "Wizard103", 
         "courseID": "103", 
         "teacher": "Ding", 
+        "teachersID": 126,
         "description": "Basics of Wizardry3",
         "studentsEnrolledArray" : [123, 124, 125], 
         "classRoom" : 103,
@@ -34,12 +37,14 @@
         "courseName": "Wizard104", 
         "courseID": "104", 
         "teacher": "Ding", 
+        "teachersID": 126,
         "description": "Basics of WIzardry4",
         "studentsEnrolledArray" : [123, 124, 125], 
         "classRoom" : 104,
         "classDays" : "Tuesday, Thursday",
         "classTime" : "10:00am to 11:30am"
     }
+    
     
 ]
 
