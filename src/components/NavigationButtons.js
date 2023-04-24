@@ -21,14 +21,9 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     setCurrentPage('announcements');
   };
 
-  const handleContentClick = () => {
-    console.log('Content button clicked');
-    if(userRole === "Teacher"){
-      setCurrentPage('teacher');
-    }
-    else {
-      setCurrentPage('student');
-    }
+  const handleAccessabilityClick = () => {
+    console.log('accessibility button clicked');
+    setCurrentPage('accessibility');
   };
 
   const handleButtonClick = (buttonName) => {
@@ -57,7 +52,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     { name: 'Assignments', onClick: handleAssignmentClick },
     { name: 'Grades', onClick: () => handleButtonClick('Grades') },
     { name: 'Announcements', onClick: () => handleAnnouncementClick('Announcements') },
-    { name: 'Accessibility', onClick: handleContentClick},
+    { name: 'Accessibility', onClick: () => handleAccessabilityClick('Accessibility')},
   ];
 
   return (

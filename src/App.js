@@ -6,12 +6,11 @@ import Course from './pages/Course';
 import School from './pages/School';
 import Header from './components/Headr';
 import Profile from './pages/Profile';
-import Teacher from './pages/Teacher';
-import Student from './pages/Student';
 import CourseWork from './pages/CourseWork';
 import Registration from './pages/Registration';
 import Announcements from './pages/Announcements';
 import Dropping from './pages/Dropping';
+import Accessibility from './pages/Accessibility';
 
 
 function App() {
@@ -34,10 +33,6 @@ function App() {
     content = <Course setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'profile') {
     content = <Profile currentUser={userId} setCurrentPage={setCurrentPage} />;
-  } else if (currentPage === 'student') {
-    content = <Student currentUser={userId} setCurrentPage={setCurrentPage} />;
-  } else if (currentPage === 'teacher') {
-    content = <Teacher currentUser={userId} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'courseWork') {
     content = <CourseWork setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'registration') {
@@ -46,6 +41,8 @@ function App() {
     content = <Announcements currentUser={userId} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'dropping') {
     content = <Dropping currentUser={userId} setCurrentPage={setCurrentPage} />;
+  }else if (currentPage === 'accessibility') {
+    content = <Accessibility currentUser={userId}  userRole={userRole} setCurrentPage={setCurrentPage} />;
   }
   
   return (
