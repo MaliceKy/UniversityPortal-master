@@ -77,3 +77,14 @@
   width: 250px;
   flex-shrink: 0;
 }
+
+p1{
+  position: absolute;
+  font-family: "Bluu Next Bold", Papyrus, fantasy;
+  transform: translate(-50%, -50%);
+  top: 30%;
+  color: #ffffff;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+}

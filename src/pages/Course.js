@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Course.css';
 import CourseData from '../data/courses.json';
+import UserData from '../data/login.json';
 
 function Course({ setCurrentPage, userRole, userId }) {
   const [courses, setCourses] = useState([]);
@@ -13,10 +14,15 @@ function Course({ setCurrentPage, userRole, userId }) {
       );
       setCourses(enrolledCourses);
     } else if (userRole === 'teacher') {
-      const teachingCourses = CourseData.filter(course => course.teacher === userId);
+      const teachingCourses = CourseData.filter(course => course.teachersID === userId);
       setCourses(teachingCourses);
     }
   }, [userRole, userId]);
+
+  const getTeacherName = (teacherId) => {
+    const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
+    return teacher ? teacher.name : 'Unknown';
+  };
 
   return (
     <div>
@@ -24,14 +30,14 @@ function Course({ setCurrentPage, userRole, userId }) {
       <h3 className="Course-welcome-title">Registered Courses:</h3>
       <div className="course-container">
         {courses.length === 0 ? (
-          <p>Currently you're not registered for any courses</p>
+          <p1>Currently you're not registered for any courses</p1>
         ) : (
           <div className="course-list">
             {courses.map(course => (
               <div key={course.courseID} className="course-card">
                 <h4>{course.courseName}</h4>
                 <p>{course.description}</p>
-                <p> Instructor: {course.teacher}</p>
+                <p> Instructor: {getTeacherName(course.teachersID)}</p>
                 <p>Classroom: {course.classRoom}</p>
                 <p> Your Classes: {course.classRoom} </p>
                 <h4>Meeting Times:</h4>
@@ -54,3 +60,5 @@ function Course({ setCurrentPage, userRole, userId }) {
 }
 
 export default Course;
+
+
