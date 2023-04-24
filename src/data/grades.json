@@ -3,7 +3,8 @@
         "courseID": "101", 
         "teachersID": 126,
         "studentID": 125,
-        "grade": "A"
+        "grade": "A",
+        "studentName": "John Doe"
         
         
     },
@@ -12,7 +13,8 @@
         "courseID": "101", 
         "teachersID": 126,
         "studentID": 124,
-        "grade": "B"
+        "grade": "B",
+        "studentName": "John Doe"
         
         
     },
@@ -20,7 +22,8 @@
         "courseID": "102", 
         "teachersID": 126,
         "studentID": 125,
-        "grade": "C"
+        "grade": "C",
+        "studentName": "John Doe"
         
         
     },
@@ -28,7 +31,8 @@
         "courseID": "102", 
         "teachersID": 126,
         "studentID": 123,
-        "grade": "D"
+        "grade": "D",
+        "studentName": "John Doe"
         
         
     },
@@ -36,7 +40,8 @@
         "courseID": "103", 
         "teachersID": 126,
         "studentID": 124,
-        "grade": "F"
+        "grade": "F",
+        "studentName": "John Doe"
         
         
     },
@@ -44,7 +49,8 @@
         "courseID": "104", 
         "teachersID": 126,
         "studentID": 124,
-        "grade": "A"
+        "grade": "A",
+        "studentName": "John Doe"
         
         
     },
@@ -52,7 +58,8 @@
         "courseID": "104", 
         "teachersID": 126,
         "studentID": 125,
-        "grade": "B" 
+        "grade": "B" ,
+        "studentName": "John Doe"
     }
    
     
