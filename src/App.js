@@ -10,6 +10,8 @@ import Teacher from './pages/Teacher';
 import Student from './pages/Student';
 import CourseWork from './pages/CourseWork';
 import Registration from './pages/Registration';
+import Announcements from './pages/Announcements';
+
 
 function App() {
   const [currentPage, setCurrentPage] = useState('school');
@@ -39,6 +41,8 @@ function App() {
     content = <CourseWork setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'registration') {
     content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
+  } else if (currentPage === 'announcements') {
+    content = <Announcements currentUser={userId} setCurrentPage={setCurrentPage} />;
   }
 
   return (
