@@ -27,6 +27,11 @@ function Course({ setCurrentPage, userRole, userId }) {
     return GradeData.filter(grade => grade.courseID === courseId);
   };
 
+  const getStudentName = (studentId) => {
+    const student = UserData.find(user => user.ID === studentId && user.role === 'student');
+    return student ? student.name : 'Unknown';
+  };
+
   const getGrade = (courseId, teachersId) => {
     if (userRole === 'student') {
       const grade = grades.find(grade => grade.courseID === courseId && grade.studentID === userId);
@@ -43,7 +48,9 @@ function Course({ setCurrentPage, userRole, userId }) {
             <h4>Grades:</h4>
             <ul>
               {courseGradesList.map(grade => (
-                <li key={grade.studentID}>{grade.studentName}: {grade.grade}</li>
+                <p key={grade.studentID} id = "lists">Name: {getStudentName(grade.studentID)}
+                <p>Grade: {grade.grade}</p>
+                </p>
               ))}
             </ul>
           </div>
@@ -59,6 +66,11 @@ function Course({ setCurrentPage, userRole, userId }) {
   const getTeacherName = (teacherId) => {
     const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
     return teacher ? teacher.name : 'Unknown';
+  };
+
+  const getTeacherEmail = (teacherId) => {
+    const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
+    return teacher ? teacher.email : 'Unknown';
   };
 
   return (
@@ -81,6 +93,7 @@ function Course({ setCurrentPage, userRole, userId }) {
                 <hr />
                 <p>{course.classDays}</p>
                 <p>{course.classTime}</p>
+                <p>Instructor Email: {getTeacherEmail(course.teachersID)} </p>
                 {getGrade(course.courseID, course.teachersID)}
               </div>
             ))}

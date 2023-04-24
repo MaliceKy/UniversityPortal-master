@@ -88,3 +88,7 @@ p1{
   text-align: center;
   text-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
 }
+
+#lists {
+  margin-right: 40px;
+}
