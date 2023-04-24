@@ -3,29 +3,70 @@
     font-weight: bold;
     color: #03770d;
     margin-bottom: 1rem;
-}
+  }
   
-  
-.course-list {
+  .coursework-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 1rem;
-}
+    gap: .02rem;
+  }
   
-.course-card {
+  .coursework-card {
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 250px;
+    margin-top: 5%;
+
+  }
+  
+  .fixButtons {
+    margin-bottom: 20px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    flex-wrap: wrap; /* Add this line */
+
+  }
+  
+  .submission {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    margin: auto;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 5%;
+  }
+  
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0;
 }
   
-  
-.fixButtons {
-    margin-bottom:20px;
+.submitAssignment{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    
 }
   
-  
-  
+.submitAssignment:hover {
+    background-color: #3e8e41;
+}

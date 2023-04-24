@@ -2,8 +2,8 @@
     {
         "assignmentName": "Essay One", 
         "courseID": "101", 
-        "assignmentDueDate": "January 25th, 2023",
-        "assignmentDueTime": "11:59pm",
+        "assignmentDueDate": "2023-04-25",
+        "assignmentDueTime": "12:00:00",
         "assignmentDescription": "filler assignemnt description",
         "dayAssigned": "January 15th, 2023",
         "assignmentWorth": 5
@@ -13,8 +13,8 @@
     {
         "assignmentName": "Essay Two", 
         "courseID": "102", 
-        "assignmentDueDate": "January 22th, 2023",
-        "assignmentDueTime": "11:59pm",
+        "assignmentDueDate": "2023-04-22",
+        "assignmentDueTime": "12:00:00",
         "assignmentDescription": "filler assignemnt description",
         "dayAssigned": "January 15th, 2023",
         "assignmentWorth": 5
@@ -24,8 +24,8 @@
     {
         "assignmentName": "Essay Three", 
         "courseID": "103", 
-        "assignmentDueDate": "January 29th, 2023",
-        "assignmentDueTime": "11:59pm",
+        "assignmentDueDate": "2023-04-29",
+        "assignmentDueTime": "12:00:00",
         "assignmentDescription": "filler assignemnt description",
         "dayAssigned": "January 15th, 2023",
         "assignmentWorth": 5
@@ -35,8 +35,8 @@
     {
         "assignmentName": "Essay Four", 
         "courseID": "104", 
-        "assignmentDueDate": "January 26th, 2023",
-        "assignmentDueTime": "11:59pm",
+        "assignmentDueDate": "2023-04-26",
+        "assignmentDueTime": "12:00:00",
         "assignmentDescription": "filler assignemnt description",
         "dayAssigned": "January 15th, 2023",
         "assignmentWorth": 5
