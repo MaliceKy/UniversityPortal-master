@@ -7,7 +7,6 @@
     "description": "How to cast spells that are used for specific purposes such as levitation, cleaning, and summoning.",
     "studentsEnrolledArray": [
       124,
-      126,
       125
     ],
     "classRoom": 189,
@@ -21,7 +20,6 @@
     "teachersID": 126,
     "description": "A class that teaches students how to interpret omens, read tea leaves, and predict the future.",
     "studentsEnrolledArray": [
-      126,
       125,
       123
     ],
@@ -37,7 +35,6 @@
     "description": "A class that introduces students to a wide variety of magical creatures and teaches them how to care for them.",
     "studentsEnrolledArray": [
       124,
-      126,
       125
     ],
     "classRoom": 103,
@@ -52,7 +49,6 @@
     "description": " A class that teaches students how to read and write ancient magical symbols, which are used for spells, curses, and other magical purposes. ",
     "studentsEnrolledArray": [
       124,
-      126,
       125
     ],
     "classRoom": 398,

@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Dropping({ currentUser, setCurrentPage }) {
+function Registration({ currentUser, setCurrentPage }) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
   useEffect(() => {
@@ -42,8 +42,6 @@ function Dropping({ currentUser, setCurrentPage }) {
         return c;
       });
       setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID)));
-      // You can replace the above line with the following if you want to remove the course from the list after registration:
-      // setUnregisteredCourses(unregisteredCourses.filter(c => c.courseID !== course.courseID));
     })
     .catch(error => {
       console.error(error);
@@ -76,17 +74,15 @@ function Dropping({ currentUser, setCurrentPage }) {
       <NavigationButtons setCurrentPage={setCurrentPage} />
       <div className="registration-text" style={{ marginTop: '40px' }}>
         <h2>Register for classes!</h2>
-        <div className="course-list" style={{ marginTop: '10px' }}>
+        <div className="course-card-container" style={{ marginTop: '10px' }}>
           {courseButtons}
         </div>
       </div>
       <button onClick={() => setCurrentPage('dropping')} className="drop-button">
-  Drop Course(s)
-</button>
-
+        Drop Course(s)
+      </button>
     </div>
-    
   );
 }
 
-export default Dropping;
+export default Registration;

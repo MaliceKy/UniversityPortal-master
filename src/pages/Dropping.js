@@ -78,7 +78,7 @@ function Dropping({ currentUser, setCurrentPage }) {
       <NavigationButtons setCurrentPage={setCurrentPage} />
       <div className="drop-text" style={{ marginTop: '40px' }}>
         <h2>Drop Courses:</h2>
-        <div className="course-list" style={{ marginTop: '10px' }}>
+        <div className="course-card-container" style={{ marginTop: '10px' }}>
           {courseButtons}
         </div>
       </div>
@@ -90,3 +90,4 @@ function Dropping({ currentUser, setCurrentPage }) {
 }
 
 export default Dropping;
+
