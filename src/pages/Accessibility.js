@@ -1,4 +1,5 @@
 import React from 'react';
+import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Accessibility.css';
 
 function Accessibility({ userId, userRole, setCurrentPage }) {
@@ -38,9 +39,9 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
   if (userRole === 'teacher') {
     return (
       <div id="access-container">
+        <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} /> {/* Include NavigationButtons */}
         <div>
-          Would you like to Enter a Class?
-          <h2>Complete the following</h2>
+        <p className="Create-class-text">Would you like to Create a Class?</p>
 
           <form id="courseForm" onSubmit={handleSubmit}>
             <label htmlFor="courseName" className="form-label1" id="nam">
@@ -50,33 +51,33 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
 
             <label htmlFor="CourseID" className="form-label1">
               {' '}
-              Course ID
+              Course ID:
             </label>
             <input type="text" id="CourseID" name="CourseID" placeholder="Courses ID" />
 
             <label htmlFor="teachersID" className="form-label1">
               {' '}
-              Teachers ID
+              Teachers ID:
             </label>
             <input type="text" id="teachersID" name="teachersID" placeholder="Teachers ID" />
 
             <label htmlFor="teachersName" className="form-label1">
-              Your Name
+              Your Name:
             </label>
             <input type="text" id="teachersName" name="teachersName" placeholder="Teachers Name" />
 
             <label htmlFor="description" className="form-label1">
-              Description
+              Description:
             </label>
             <textarea type="text" id="description" name="description" placeholder="description" />
 
             <label htmlFor="classRoom" className="form-label1">
-              Classroom number
+              Classroom number:
             </label>
             <input type="text" id="classRoom" name="classRoom" placeholder="Description" />
 
             <label htmlFor="classTime" className="form-label1">
-              Class Time
+              Class Time:
             </label>
             <input type="text" id="classTime" name="classTime" placeholder="ClassTime" />
 
@@ -88,8 +89,14 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
       </div>
     );
   } else {
-    return <div>Access restricted. Only teachers can add courses.</div>;
+    return (
+      <div>
+        <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} /> {/* Include NavigationButtons */}
+        <div>Access restricted. Only teachers can add courses.</div>
+      </div>
+    );
   }
 }
 
 export default Accessibility;
+

@@ -48,8 +48,12 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     { name: 'Courses', onClick: handleCourseClick },
     { name: 'Assignments', onClick: handleAssignmentClick },
     { name: 'Announcements', onClick: () => handleAnnouncementClick('Announcements') },
-    { name: 'Accessibility', onClick: () => handleAccessabilityClick('Accessibility')},
   ];
+
+  // Conditionally add the 'Accessibility' button for teachers only
+  if (userRole === 'teacher') {
+    buttons.push({ name: 'Create Class', onClick: () => handleAccessabilityClick('Accessibility') });
+  }
 
   return (
     <div className="button-container">

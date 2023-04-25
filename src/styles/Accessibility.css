@@ -8,6 +8,7 @@
   text-align: center;
   width: 55%;
   display: inline-block;
+  margin-top: 20px;
 }
 
 #courseForm {
@@ -49,5 +50,15 @@ textarea {
   background-color: #45a049;
 }
 
+.Create-class-text
+{
+  font-family: "Bluu Next Bold", Papyrus, fantasy;
+  top: 0%;
+  left: 50%;
+  color: #000000;
+  font-size: 1.5rem;
+  text-align: center;
+  text-shadow: 4px 5px 10px rgba(0, 0, 0, 0.3);
+}
 
 
