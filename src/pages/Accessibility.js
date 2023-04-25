@@ -1,53 +1,95 @@
-
-
 import React from 'react';
 import '../styles/Accessibility.css';
 
+function Accessibility({ userId, userRole, setCurrentPage }) {
+  async function handleSubmit(event) {
+    event.preventDefault();
 
+    const courseData = {
+      courseName: event.target.courseName.value,
+      courseID: event.target.CourseID.value,
+      teachersID: event.target.teachersID.value,
+      teacher: event.target.teachersName.value,
+      description: event.target.description.value,
+      classRoom: event.target.classRoom.value,
+      classTime: event.target.classTime.value,
+    };
 
-function Accessibility({userId, userRole, setCurrentPage }) {
+    try {
+      const response = await fetch('http://localhost:3001/api/courses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(courseData),
+      });
 
-  return (
+      if (response.ok) {
+        alert('Course added successfully');
+      } else {
+        alert('Error adding course');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error adding course');
+    }
+  }
 
-    <div id = "access-container">
-        
-      <div >
+  if (userRole === 'teacher') {
+    return (
+      <div id="access-container">
+        <div>
+          Would you like to Enter a Class?
+          <h2>Complete the following</h2>
 
-        Would you like to Enter a Class?
-        <h2>Complete the following</h2>
-        
-        <form id = "courseForm">
-        
-        <label for='courseName' class="form-label1" id = "nam">Course Name:</label>
-        <input type="text" id='courseName' name="courseName" placeholder="Course Name" />
-   
-     
-        <label for='CourseID' class="form-label1"> Course ID</label>
-        <input type="text" id='CourseID' name="CourseID" placeholder="Courses ID" />
-        
-        <label for='teachersID' class="form-label1"> Teachers ID</label>
-        <input type="text" id='teachersID' name="teachersID" placeholder="Teachers ID" />
-        
-        <label for='teachersName' class="form-label1">Your Name</label>
-        <input type="text" id='teachersName' name="teachersName" placeholder="Teachers Name" />
-    
-        <label for="description" class="form-label1">Description</label>
-        <textarea type="text" id='description' name="description" placeholder="description" />
+          <form id="courseForm" onSubmit={handleSubmit}>
+            <label htmlFor="courseName" className="form-label1" id="nam">
+              Course Name:
+            </label>
+            <input type="text" id="courseName" name="courseName" placeholder="Course Name" />
 
-        <label for='classRoom' class="form-label1">Classroom number</label>
-        <input type="text" id='classRoom' name="classRoom" placeholder="Description" />
+            <label htmlFor="CourseID" className="form-label1">
+              {' '}
+              Course ID
+            </label>
+            <input type="text" id="CourseID" name="CourseID" placeholder="Courses ID" />
 
-        <label for='classTime ' class="form-label1">Class Time</label>
-        <input type="text" id='classTime' name="classTime" placeholder="ClassTime" />
-        
-        <button type="submitbutton" id="submitAssignment">Submit</button>
-        
-  </form>
+            <label htmlFor="teachersID" className="form-label1">
+              {' '}
+              Teachers ID
+            </label>
+            <input type="text" id="teachersID" name="teachersID" placeholder="Teachers ID" />
+
+            <label htmlFor="teachersName" className="form-label1">
+              Your Name
+            </label>
+            <input type="text" id="teachersName" name="teachersName" placeholder="Teachers Name" />
+
+            <label htmlFor="description" className="form-label1">
+              Description
+            </label>
+            <textarea type="text" id="description" name="description" placeholder="description" />
+
+            <label htmlFor="classRoom" className="form-label1">
+              Classroom number
+            </label>
+            <input type="text" id="classRoom" name="classRoom" placeholder="Description" />
+
+            <label htmlFor="classTime" className="form-label1">
+              Class Time
+            </label>
+            <input type="text" id="classTime" name="classTime" placeholder="ClassTime" />
+
+            <button type="submit" id="submitAssignment">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-      
-     
-    </div>
-  );
+    );
+  } else {
+    return <div>Access restricted. Only teachers can add courses.</div>;
+  }
 }
 
-export default Accessibility
+export default Accessibility;

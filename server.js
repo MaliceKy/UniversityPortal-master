@@ -68,7 +68,30 @@ app.post('/api/drop', (req, res) => {
   }
 });
 
+app.post('/api/courses', (req, res) => {
+  let newCourse = req.body;
+  const data = JSON.parse(fs.readFileSync('./src/data/courses.json', 'utf-8'));
+
+  // Parse teacher's ID as an integer
+  if (newCourse.hasOwnProperty('teachersID')) {
+    newCourse.teachersID = parseInt(newCourse.teachersID, 10);
+  }
+
+  // Change "teachersName" to "teacher"
+  if (newCourse.hasOwnProperty('teachersName')) {
+    newCourse.teacher = newCourse.teachersName;
+    delete newCourse.teachersName;
+  }
+
+  // Add an empty "studentsEnrolledArray"
+  newCourse.studentsEnrolledArray = [];
+
+  data.push(newCourse);
+  fs.writeFileSync('./src/data/courses.json', JSON.stringify(data, null, 2));
+  res.status(200).json({ message: 'Course added successfully' });
+});
+
 app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });
 

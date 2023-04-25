@@ -21,9 +21,9 @@
     "teachersID": 126,
     "description": "A class that teaches students how to interpret omens, read tea leaves, and predict the future.",
     "studentsEnrolledArray": [
-      123,
       126,
-      125
+      125,
+      123
     ],
     "classRoom": 465,
     "classDays": "Monday, Wednesday, Friday",
@@ -37,7 +37,6 @@
     "description": "A class that introduces students to a wide variety of magical creatures and teaches them how to care for them.",
     "studentsEnrolledArray": [
       124,
-      123,
       126,
       125
     ],
