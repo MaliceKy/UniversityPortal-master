@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Dropping({ currentUser, setCurrentPage }) {
+function Dropping({ currentUser, userRole, setCurrentPage }) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ function Dropping({ currentUser, setCurrentPage }) {
 
   return (
     <div>
-      <NavigationButtons setCurrentPage={setCurrentPage} />
+      <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
       <div className="drop-text" style={{ marginTop: '40px' }}>
         <h2>Drop Courses:</h2>
         <div className="course-card-container" style={{ marginTop: '10px' }}>

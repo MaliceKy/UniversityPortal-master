@@ -7,8 +7,7 @@
     "description": "How to cast spells that are used for specific purposes such as levitation, cleaning, and summoning.",
     "studentsEnrolledArray": [
       124,
-      125,
-      123
+      125
     ],
     "classRoom": 189,
     "classDays": "Monday, Wednesday, Friday",
@@ -36,7 +35,8 @@
     "description": "A class that introduces students to a wide variety of magical creatures and teaches them how to care for them.",
     "studentsEnrolledArray": [
       124,
-      125
+      125,
+      123
     ],
     "classRoom": 103,
     "classDays": "Monday, Wednesday, Friday",
@@ -55,5 +55,17 @@
     "classRoom": 398,
     "classDays": "Tuesday, Thursday",
     "classTime": "10:00am to 11:30am"
+  },
+  {
+    "courseName": "Course 2",
+    "courseID": "222",
+    "teachersID": 126,
+    "teacher": "Ding",
+    "description": "fxdbfdgfds",
+    "classRoom": "999",
+    "classTime": "11:44:29",
+    "studentsEnrolledArray": [
+      126
+    ]
   }
 ]

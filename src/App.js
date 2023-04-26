@@ -12,7 +12,6 @@ import Announcements from './pages/Announcements';
 import Dropping from './pages/Dropping';
 import Accessibility from './pages/Accessibility';
 
-
 function App() {
   const [currentPage, setCurrentPage] = useState('school');
   const [userRole, setUserRole] = useState('');
@@ -32,19 +31,19 @@ function App() {
   } else if (currentPage === 'courses') {
     content = <Course setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'profile') {
-    content = <Profile currentUser={userId} setCurrentPage={setCurrentPage} />;
+    content = <Profile currentUser={userId} userRole={userRole} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'courseWork') {
     content = <CourseWork setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />;
   } else if (currentPage === 'registration') {
-    content = <Registration currentUser={userId} setCurrentPage={setCurrentPage} />;
+    content = <Registration currentUser={userId} userRole={userRole} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'announcements') {
-    content = <Announcements currentUser={userId} setCurrentPage={setCurrentPage} />;
+    content = <Announcements currentUser={userId} userRole={userRole} setCurrentPage={setCurrentPage} />;
   } else if (currentPage === 'dropping') {
-    content = <Dropping currentUser={userId} setCurrentPage={setCurrentPage} />;
-  }else if (currentPage === 'accessibility') {
-    content = <Accessibility currentUser={userId}  userRole={userRole} setCurrentPage={setCurrentPage} />;
+    content = <Dropping currentUser={userId} userRole={userRole} setCurrentPage={setCurrentPage} />;
+  } else if (currentPage === 'accessibility') {
+    content = <Accessibility currentUser={userId} userRole={userRole} setCurrentPage={setCurrentPage} />;
   }
-  
+
   return (
     <div className='App'>
       <Header isSchool={currentPage === 'school'} />
@@ -54,5 +53,6 @@ function App() {
 }
 
 export default App;
+
 
 

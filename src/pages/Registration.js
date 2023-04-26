@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Registration({ currentUser, setCurrentPage }) {
+function Registration({ currentUser,userRole, setCurrentPage}) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ function Registration({ currentUser, setCurrentPage }) {
 
   return (
     <div>
-      <NavigationButtons setCurrentPage={setCurrentPage} />
+      <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
       <div className="registration-text" style={{ marginTop: '40px' }}>
         <h2>Register for classes!</h2>
         <div className="course-card-container" style={{ marginTop: '10px' }}>

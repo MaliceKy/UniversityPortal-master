@@ -5,7 +5,7 @@ import LoginData from '../data/login.json';
 import CourseData from '../data/courses.json';
 import '../styles/Profile.css';
 
-function Profile({ currentUser, setCurrentPage }) {
+function Profile({ currentUser, setCurrentPage, userRole}) {
   const [courseName, setCourseName] = useState('');
 
   const user = LoginData.find(user => user.ID === currentUser);
@@ -18,7 +18,7 @@ function Profile({ currentUser, setCurrentPage }) {
 
   return (
     <div>
-      <NavigationButtons setCurrentPage={setCurrentPage} />
+      <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
       <div className="profile-wrapper">
         <div className="profile-container">
           <h2>Profile</h2>

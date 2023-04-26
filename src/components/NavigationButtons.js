@@ -26,8 +26,6 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     setCurrentPage('accessibility');
   };
 
- 
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 600) {
@@ -50,11 +48,6 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     { name: 'Announcements', onClick: () => handleAnnouncementClick('Announcements') },
   ];
 
-  // Conditionally add the 'Accessibility' button for teachers only
-  if (userRole === 'teacher') {
-    buttons.push({ name: 'Create Class', onClick: () => handleAccessabilityClick('Accessibility') });
-  }
-
   return (
     <div className="button-container">
       {buttons.map(({ name, onClick }) => (
@@ -62,9 +55,13 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
           {name}
         </button>
       ))}
+      {userRole === 'teacher' && (
+        <button className={buttonSize} onClick={() => handleAccessabilityClick('Accessibility')}>
+          Create Class
+        </button>
+      )}
     </div>
   );
 }
 
 export default NavigationButtons;
-

@@ -10,7 +10,7 @@ import CourseData from '../data/courses.json';
 
 
 
-function CourseWork({ userId, userRole, setCurrentPage }) {
+function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
   const [courses, setCourses] = useState([]);
   const [assignments, setAssignments] = useState([]);
 
@@ -93,7 +93,7 @@ function CourseWork({ userId, userRole, setCurrentPage }) {
 
   return (
     <div>
-      <NavigationButtons setCurrentPage={setCurrentPage} />
+      <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
       <div className="coursework-list">
         {courses.map((courses) => {
           // Get assignments for this course and sort by due date
