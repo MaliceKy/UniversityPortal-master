@@ -1,8 +1,11 @@
 import React from 'react';
 import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Accessibility.css';
+import CourseData from '../data/courses.json';
+
 
 function Accessibility({ userId, userRole, setCurrentPage }) {
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -16,6 +19,7 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
       classDays: event.target.classDays.value, // Add classDays
       classTime: event.target.classTime.value,
     };
+  
 
     try {
       const response = await fetch('http://localhost:3001/api/courses', {
@@ -36,6 +40,38 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
       alert('Error adding course');
     }
   }
+
+  function handleDeleteCourse() {
+    const courseIdToDelete = document.getElementById('courseIdToDelete').value;
+    const courseIndexToDelete = CourseData.findIndex(course => course.courseID === courseIdToDelete);
+  
+    if (courseIndexToDelete !== -1) {
+      CourseData.splice(courseIndexToDelete, 1);
+      alert(`Course with ID ${courseIdToDelete} has been deleted.`);
+      localStorage.setItem('CourseData', JSON.stringify(CourseData));
+      
+      // Update the courses.json file on the server
+      const updatedCourseData = JSON.stringify(CourseData);
+      fetch('http://localhost:3001/api/courses', {
+        method: 'DELETE',
+        body: updatedCourseData,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to update courses.json');
+        }
+      }).catch(error => {
+        console.error(error);
+        alert('Failed to update courses.json');
+      });
+    } else {
+      alert(`No course with ID ${courseIdToDelete} found.`);
+    }
+  }
+
+
 
   if (userRole === 'teacher') {
     return (
@@ -91,8 +127,19 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
               Submit
             </button>
           </form>
+      
+        </div>
+
+        <div id="or-divider">
+        <div className="or-text">- - - - Or - - - -</div>
+        </div>
+        <div>
+          <label htmlFor="courseIdToDelete" className="form-label1">Enter the ID of the course to delete:</label>
+          <input type="text" id="courseIdToDelete" placeholder="Course ID" />
+          <button type="button" className= "deleteCourse-button" onClick={handleDeleteCourse}>Delete a Course</button>
         </div>
       </div>
+      
     );
   } else {
     return (

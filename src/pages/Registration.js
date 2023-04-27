@@ -13,7 +13,7 @@ function Registration({ currentUser, userRole, setCurrentPage }) {
       course => !course.studentsEnrolledArray.includes(user.ID)
     );
     setUnregisteredCourses(availableCourses);
-  }, [currentUser]);
+  }, [currentUser, ]);
 
   const handleCourseClick = (event, course) => {
     const user = UserData.find(user => user.ID === currentUser);
@@ -48,6 +48,7 @@ function Registration({ currentUser, userRole, setCurrentPage }) {
       });
   };
 
+
   const courseButtons = unregisteredCourses.map((course) => (
     <div key={course.courseID} className="course-cardReg">
       <h4>{course.courseName}</h4>
@@ -68,8 +69,11 @@ function Registration({ currentUser, userRole, setCurrentPage }) {
       >
         Register for {course.courseName}
       </button>
+      
     </div>
   ));
+
+
 
   return (
     <div>
