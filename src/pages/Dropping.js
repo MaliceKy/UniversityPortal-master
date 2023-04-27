@@ -55,7 +55,9 @@ function Dropping({ currentUser, userRole, setCurrentPage }) {
   const courseButtons = unregisteredCourses.map((course) => (
     <div key={course.courseID} className="course-cardDrop">
       <h4>{course.courseName}</h4>
-      <p>{course.description}</p>
+      <div className="description-container">
+        <p>{course.description}</p>
+      </div>
       <p>Instructor: {course.teacher}</p>
       <p>Classroom: {course.classRoom}</p>
       <p>Course ID: {course.courseID}</p>
@@ -72,6 +74,7 @@ function Dropping({ currentUser, userRole, setCurrentPage }) {
       </button>
     </div>
   ));
+  
 
   return (
     <div>

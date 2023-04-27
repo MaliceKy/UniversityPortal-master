@@ -13,6 +13,7 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
       teacher: event.target.teachersName.value,
       description: event.target.description.value,
       classRoom: event.target.classRoom.value,
+      classDays: event.target.classDays.value, // Add classDays
       classTime: event.target.classTime.value,
     };
 
@@ -39,9 +40,9 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
   if (userRole === 'teacher') {
     return (
       <div id="access-container">
-        <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} /> {/* Include NavigationButtons */}
+        <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
         <div>
-        <p className="Create-class-text">Would you like to Create a Class?</p>
+          <p className="Create-class-text">Would you like to Create a Class?</p>
 
           <form id="courseForm" onSubmit={handleSubmit}>
             <label htmlFor="courseName" className="form-label1" id="nam">
@@ -76,6 +77,11 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
             </label>
             <input type="text" id="classRoom" name="classRoom" placeholder="Description" />
 
+            <label htmlFor="classDays" className="form-label1">
+              Class Days:
+            </label>
+            <input type="text" id="classDays" name="classDays" placeholder="Class Days" />
+
             <label htmlFor="classTime" className="form-label1">
               Class Time:
             </label>
@@ -91,11 +97,11 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
   } else {
     return (
       <div>
-        <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} /> {/* Include NavigationButtons */}
-        <div>Access restricted. Only teachers can add courses.</div>
-      </div>
+      <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
+      <div>Access restricted. You must be a teacher to create a class.</div>
+    </div>
     );
-  }
+}
 }
 
 export default Accessibility;

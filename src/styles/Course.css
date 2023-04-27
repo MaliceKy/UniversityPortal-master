@@ -92,3 +92,7 @@ p1{
 #lists {
   margin-right: 40px;
 }
+
+.course-card p {
+  word-wrap: break-word;
+}

@@ -1,3 +1,13 @@
+/* Main registration text styling */
+.registration-text {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* No margin for registration text h2 */
 .registration-text h2 {
   font-family: "Bluu Next Bold", Papyrus, fantasy;
   top: 0%;
@@ -33,7 +43,7 @@
 /* Styling for the course cards in the registration page */
 .course-cardReg {
   width: 250px;
-  height: 500px;
+  height: auto;
   background: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -80,6 +90,9 @@
 
 /* Styling for the course list container */
 .course-card-container {
+  max-height: 62vh;
+  overflow-y: auto;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -106,8 +119,26 @@ h4 {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  cursor: pointer
+}
+.course-cardReg .description-container p {
+  word-wrap: break-word;
+}
+
+.registration-container {
+  display: flex;
+  justify-content: center;
+  max-height: 62vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+
+.course-card-container {
+  max-height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
 }

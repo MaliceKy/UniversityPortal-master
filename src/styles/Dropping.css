@@ -43,7 +43,7 @@
 /* Styling for the course cards in the registration page */
 .course-cardDrop {
   width: 250px;
-  height: 500px;
+  min-height: 500px; /* Change 'height' to 'min-height' */
   background: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -98,13 +98,11 @@
 
 /* Styling for the course card container */
 .course-card-container {
-  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  max-height: 62vh;
   overflow-y: auto;
   padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
 }
 
 hr {
@@ -132,3 +130,8 @@ h4 {
   text-decoration: none;
   display: inline-block;
 }
+
+.course-cardDrop .description-container p {
+  word-wrap: break-word;
+}
+

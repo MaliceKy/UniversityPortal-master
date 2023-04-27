@@ -4,7 +4,7 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Registration({ currentUser,userRole, setCurrentPage}) {
+function Registration({ currentUser, userRole, setCurrentPage }) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
   useEffect(() => {
@@ -28,30 +28,32 @@ function Registration({ currentUser,userRole, setCurrentPage}) {
       },
       body: JSON.stringify(requestData)
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log(data.message);
-      const updatedCourse = {
-        ...course,
-        studentsEnrolledArray: [...course.studentsEnrolledArray, user.ID]
-      };
-      const updatedCourses = CourseData.map(c => {
-        if (c.courseID === course.courseID) {
-          return updatedCourse;
-        }
-        return c;
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
+        const updatedCourse = {
+          ...course,
+          studentsEnrolledArray: [...course.studentsEnrolledArray, user.ID]
+        };
+        const updatedCourses = CourseData.map(c => {
+          if (c.courseID === course.courseID) {
+            return updatedCourse;
+          }
+          return c;
+        });
+        setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID)));
+      })
+      .catch(error => {
+        console.error(error);
       });
-      setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID)));
-    })
-    .catch(error => {
-      console.error(error);
-    });
   };
 
   const courseButtons = unregisteredCourses.map((course) => (
     <div key={course.courseID} className="course-cardReg">
       <h4>{course.courseName}</h4>
-      <p>{course.description}</p>
+      <div className="description-container">
+        <p>{course.description}</p>
+      </div>
       <p>Instructor: {course.teacher}</p>
       <p>Classroom: {course.classRoom}</p>
       <p>Course ID: {course.courseID}</p>
@@ -74,8 +76,10 @@ function Registration({ currentUser,userRole, setCurrentPage}) {
       <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
       <div className="registration-text" style={{ marginTop: '40px' }}>
         <h2>Register for classes!</h2>
-        <div className="course-card-container" style={{ marginTop: '10px' }}>
-          {courseButtons}
+        <div className="registration-container">
+          <div className="course-card-container" style={{ marginTop: '10px' }}>
+            {courseButtons}
+          </div>
         </div>
       </div>
       <button onClick={() => setCurrentPage('dropping')} className="drop-button">
@@ -86,3 +90,4 @@ function Registration({ currentUser,userRole, setCurrentPage}) {
 }
 
 export default Registration;
+
