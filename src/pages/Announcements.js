@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect  } from 'react';
 import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Announcements.css';
+
 
 function Announcements({ setCurrentPage, userRole, userId }) {
   const [isExpanded1, setIsExpanded1] = useState(false);
@@ -9,6 +10,19 @@ function Announcements({ setCurrentPage, userRole, userId }) {
   const [isExpanded4, setIsExpanded4] = useState(false);
   const [isExpanded5, setIsExpanded5] = useState(false);
   const [isExpanded6, setIsExpanded6] = useState(false);
+
+  const [announcements, setAnnouncements] = useState(() => {
+    const storedAnnouncements = localStorage.getItem('announcements');
+    return storedAnnouncements ? JSON.parse(storedAnnouncements) : [];
+  });
+
+  const [setNewAnnouncement] = useState({ title: '', content: '' });
+
+  useEffect(() => {
+    localStorage.setItem('announcements', JSON.stringify(announcements));
+  }, [announcements]);
+
+  
 
   const handleExpandClick = (announcementIndex) => {
     if (announcementIndex === 1) {
@@ -26,11 +40,83 @@ function Announcements({ setCurrentPage, userRole, userId }) {
     }
   };
 
+  
+
+  const handleNewAnnouncementSubmit = async (event) => {
+    
+    event.preventDefault();
+    const title = event.target.elements.title.value;
+    const content = event.target.elements.content.value;
+    const newAnnouncement = { title, content, timestamp: new Date() };
+    setAnnouncements([...announcements, newAnnouncement]);
+    event.target.elements.title.value = '';
+    event.target.elements.content.value = '';
+    setNewAnnouncement({ title: '', content: '' });
+
+    try {
+      const response = await fetch('/api/announcements', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newAnnouncement),
+        
+      });
+
+      if (response.ok) {
+        document.getElementById('submitMessage').innerHTML = 'Announcement posted successfully!';
+        
+        setAnnouncements([...announcements, newAnnouncement]); 
+        
+        setNewAnnouncement({ title: '', content: '' });
+      } else {
+        throw new Error('Error posting announcement');
+      }
+    } catch (error) {
+      document.getElementById('submitMessage').innerHTML = error.message;
+    }
+    
+  };
+
   return (
     <div>
       <NavigationButtons setCurrentPage={setCurrentPage} userRole={userRole} userId={userId} />
       <h1>Announcements!</h1>
-      <div className="course-container">
+      
+
+      <div className="announcement-container">
+        
+      {userRole === 'teacher' && (
+        
+        <form onSubmit={handleNewAnnouncementSubmit}>
+        <div className="announcement-card">
+          Make an Announcement!
+          <label>
+            <input type="text" name="title" placeholder="Title of your announcement" />
+          </label>
+          <br />
+          <label>
+            <input type="text" name="content" placeholder="What is it about?" />
+          </label>
+          <br />
+          <button type="submit">Post</button>
+        </div>
+      </form>
+          
+        )}
+        
+        {announcements.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp)).map((announcement, index) => (
+          <div key={index} className="announcement-card">
+            <h2>{announcement.title}</h2>
+            <p>{announcement.content}</p>
+            {userRole === 'teacher' && <button onClick={() => {
+      const updatedAnnouncements = [...announcements];
+      updatedAnnouncements.splice(index, 1);
+      setAnnouncements(updatedAnnouncements);
+      localStorage.setItem('announcements', JSON.stringify(updatedAnnouncements));
+    }}>Delete post</button>}
+  </div>
+))}
+        
+  
       <div className="announcement-card">
         <h2>"Important Safety Reminder: Forbidden Forest Off-Limits!"</h2>
         <p>{isExpanded1 ? "Good afternoon, students of Hogwarts! This is Professor McGonagall speaking. I would like to remind all students that the Forbidden Forest is strictly off-limits. Several dangerous creatures have been spotted in the area recently, and we cannot risk any harm coming to our students. Anyone caught entering the Forbidden Forest will face disciplinary action, up to and including expulsion." : "Good afternoon, students of Hogwarts! This is Professor McGonagall speaking. I would like to remind all students that the Forbidden Forest is strictly off-limits. Several dangerous creatures have been spotted in the area recently, and we cannot risk any harm coming to our students. "}

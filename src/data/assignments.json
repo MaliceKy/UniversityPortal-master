@@ -38,5 +38,14 @@
     "assignmentDescription": "Write an essay on a particular event, person or era in wizarding history.",
     "dayAssigned": "January 15th, 2023",
     "assignmentWorth": "30pts"
+  },
+  {
+    "assignmentName": "Exam 1",
+    "teachersID": 126,
+    "assignmentDueDate": "2023-04-05",
+    "assignmentDueTime": "10:29",
+    "assignmentWorth": "3",
+    "assignmentDescription": "hghg",
+    "courseID": "222"
   }
 ]
