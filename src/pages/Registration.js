@@ -1,3 +1,10 @@
+/*
+@param {string} currentUser - the ID of the current user
+@param {string} userRole - the role of the current user
+@param {function} setCurrentPage - a function to set the current page to display
+@returns {JSX.Element} - the rendered component
+*/
+
 import React, { useState, useEffect } from 'react';
 import "../styles/Registration.css";
 import NavigationButtons from '../components/NavigationButtons';

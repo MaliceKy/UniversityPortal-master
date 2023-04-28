@@ -1,4 +1,8 @@
-// Profile.js
+/* @param {string} currentUser - the ID of the current user
+@param {function} setCurrentPage - a function to set the current page to display
+@param {string} userRole - the role of the current user
+@returns {JSX.Element} - the rendered component
+*/
 import { useState, useEffect } from 'react';
 import NavigationButtons from '../components/NavigationButtons';
 import LoginData from '../data/login.json';
