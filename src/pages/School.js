@@ -9,7 +9,7 @@ import ClassRoom1 from '../images/ClassRoom1.jpg';
 import '../styles/School.css';
 
 
-function School({ setCurrentPage }) {
+function School({ setCurrentPage }) { //handles login page
   const handleLoginClick = () => {
     setCurrentPage('login');
   };

@@ -4,7 +4,7 @@ import '../styles/buttons.css';
 function NavigationButtons({ setCurrentPage, userRole, userId }) {
   const [buttonSize, setButtonSize] = useState('button');
 
-  const handleProfileClick = () => {
+  const handleProfileClick = () => { // onClick functions for each button
     console.log('Profile button clicked');
     setCurrentPage('profile');
   };
@@ -26,7 +26,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     setCurrentPage('accessibility');
   };
 
-  useEffect(() => {
+  useEffect(() => { // adjusts the size of the buttons dynamically based on the screen size
     const handleResize = () => {
       if (window.innerWidth <= 600) {
         setButtonSize('button button-small');
@@ -41,7 +41,7 @@ function NavigationButtons({ setCurrentPage, userRole, userId }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const buttons = [
+  const buttons = [ // array of buttons, with each button represented by an object containing its name and onClick function
     { name: 'Profile', onClick: handleProfileClick },
     { name: 'Courses', onClick: handleCourseClick },
     { name: 'Assignments', onClick: handleAssignmentClick },

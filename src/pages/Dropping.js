@@ -4,24 +4,24 @@ import NavigationButtons from '../components/NavigationButtons';
 import CourseData from '../data/courses.json';
 import UserData from '../data/login.json';
 
-function Dropping({ currentUser, userRole, setCurrentPage }) {
-  const [unregisteredCourses, setUnregisteredCourses] = useState([]);
+function Dropping({ currentUser, userRole, setCurrentPage }) { // This component displays a list of courses that the user is currently enrolled in and allows them to drop a course by clicking on a button.
+  const [unregisteredCourses, setUnregisteredCourses] = useState([]); // Initialize state for unregisteredCourses, which will hold a list of courses the user is currently enrolled in but can drop
 
-  useEffect(() => {
+  useEffect(() => { // Use useEffect to update unregisteredCourses when the user changes
     const user = UserData.find((user) => user.ID === currentUser);
-    const availableCourses = CourseData.filter(
+    const availableCourses = CourseData.filter( // Filter the course data to only include courses that the user is enrolled in
       (course) => course.studentsEnrolledArray.includes(user.ID)
-    );
+    ); // Set the unregisteredCourses state to the filtered courses
     setUnregisteredCourses(availableCourses);
   }, [currentUser]);
 
-  const handleCourseClick = (event, course) => {
-    const user = UserData.find((user) => user.ID === currentUser);
+  const handleCourseClick = (event, course) => { // Define a function to handle course drop requests
+    const user = UserData.find((user) => user.ID === currentUser); // Create an object to send in the fetch request to the server
     const requestData = {
       courseId: course.courseID,
       userId: user.ID,
     };
-    fetch('/api/drop', {
+    fetch('/api/drop', { // Send a POST request to the server to drop the course
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,8 +30,8 @@ function Dropping({ currentUser, userRole, setCurrentPage }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.message);
-        const updatedCourse = {
+        console.log(data.message); // Log the message returned from the server
+        const updatedCourse = { // Update the course data in the CourseData array to reflect the dropped course
           ...course,
           studentsEnrolledArray: course.studentsEnrolledArray.filter(
             (id) => id !== user.ID
@@ -42,7 +42,7 @@ function Dropping({ currentUser, userRole, setCurrentPage }) {
             return updatedCourse;
           }
           return c;
-        });
+        }); // Update the unregisteredCourses state to reflect the dropped course
         setUnregisteredCourses(
           updatedCourses.filter((c) => c.studentsEnrolledArray.includes(user.ID))
         );

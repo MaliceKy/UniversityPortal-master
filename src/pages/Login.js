@@ -6,7 +6,7 @@ import "../styles/Login.css";
 
 import Data from '../data/login.json';
 
-function LogPage({ onLoginSuccess }) {
+function LogPage({ onLoginSuccess }) { // This function renders a login page and allows users to submit their email and password for authentication
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
   const [errorMsg, setErrorMsg] = useState('');

@@ -14,7 +14,7 @@ import UserData from '../data/login.json';
 function Registration({ currentUser, userRole, setCurrentPage }) {
   const [unregisteredCourses, setUnregisteredCourses] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => { // Load available courses for registration when the component mounts or when currentUser changes
     const user = UserData.find(user => user.ID === currentUser);
     const availableCourses = CourseData.filter(
       course => !course.studentsEnrolledArray.includes(user.ID)
@@ -22,7 +22,7 @@ function Registration({ currentUser, userRole, setCurrentPage }) {
     setUnregisteredCourses(availableCourses);
   }, [currentUser, ]);
 
-  const handleCourseClick = (event, course) => {
+  const handleCourseClick = (event, course) => { // Handle course registration
     const user = UserData.find(user => user.ID === currentUser);
     const requestData = {
       courseId: course.courseID,
@@ -37,18 +37,18 @@ function Registration({ currentUser, userRole, setCurrentPage }) {
     })
       .then(response => response.json())
       .then(data => {
-        console.log(data.message);
+        console.log(data.message); // Update the course with the new student enrollment
         const updatedCourse = {
           ...course,
           studentsEnrolledArray: [...course.studentsEnrolledArray, user.ID]
         };
-        const updatedCourses = CourseData.map(c => {
+        const updatedCourses = CourseData.map(c => { // Update the courses data with the updated course
           if (c.courseID === course.courseID) {
             return updatedCourse;
           }
           return c;
         });
-        setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID)));
+        setUnregisteredCourses(updatedCourses.filter(c => !c.studentsEnrolledArray.includes(user.ID))); // Filter out the registered courses from the unregisteredCourses list
       })
       .catch(error => {
         console.error(error);

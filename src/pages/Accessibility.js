@@ -7,10 +7,11 @@ import CourseData from '../data/courses.json';
 function Accessibility({ userId, userRole, setCurrentPage }) {
 
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event) { // This function handles the form submission when adding a new course
     event.preventDefault();
 
-    const courseData = {
+    
+    const courseData = { // Create a JavaScript object with the form data
       courseName: event.target.courseName.value,
       courseID: event.target.CourseID.value,
       teachersID: event.target.teachersID.value,
@@ -23,7 +24,7 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
   
 
     try {
-      const response = await fetch('http://localhost:3001/api/courses', {
+      const response = await fetch('http://localhost:3001/api/courses', { // Send a POST request to the server with the course data
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
         body: JSON.stringify(courseData),
       });
 
-      if (response.ok) {
+      if (response.ok) { // If the response is OK, display a success message
         alert('Course added successfully');
       } else {
         alert('Error adding course');
@@ -44,11 +45,11 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
 
   
   
-  async function handleDeleteCourse() {
-    const courseIdToDelete = document.getElementById('courseIdToDelete').value;
-    const courseIndexToDelete = CourseData.findIndex(course => course.courseID === courseIdToDelete);
+  async function handleDeleteCourse() { // This function handles the deletion of a course
+    const courseIdToDelete = document.getElementById('courseIdToDelete').value; // Get the course ID to delete from the input field
+    const courseIndexToDelete = CourseData.findIndex(course => course.courseID === courseIdToDelete); // Find the index of the course to delete in the CourseData array
   
-    if (courseIndexToDelete !== -1) {
+    if (courseIndexToDelete !== -1) { // If the course is found, remove it from the CourseData array and update the localStorage
       CourseData.splice(courseIndexToDelete, 1);
       alert(`Course with ID ${courseIdToDelete} has been deleted.`);
       localStorage.setItem('CourseData', JSON.stringify(CourseData));
@@ -70,7 +71,7 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
           body: JSON.stringify(updatedCoursesJson),
         });
       
-        if (response.ok) {
+        if (response.ok) { // If the response is OK, display a success message
           alert('Course deleted successfully');
         } else {
           alert('Error deleting course');

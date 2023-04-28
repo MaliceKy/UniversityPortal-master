@@ -3,7 +3,9 @@ import NavigationButtons from '../components/NavigationButtons';
 import '../styles/Announcements.css';
 
 
-function Announcements({ setCurrentPage, userRole, userId }) {
+function Announcements({ setCurrentPage, userRole, userId }) { 
+
+  // State variables for controlling the expansion of each announcement
   const [isExpanded1, setIsExpanded1] = useState(false);
   const [isExpanded2, setIsExpanded2] = useState(false);
   const [isExpanded3, setIsExpanded3] = useState(false);
@@ -24,7 +26,7 @@ function Announcements({ setCurrentPage, userRole, userId }) {
 
   
 
-  const handleExpandClick = (announcementIndex) => {
+  const handleExpandClick = (announcementIndex) => { // Function for expanding or collapsing an announcement
     if (announcementIndex === 1) {
       setIsExpanded1(!isExpanded1);
     } else if (announcementIndex === 2) {
@@ -42,7 +44,7 @@ function Announcements({ setCurrentPage, userRole, userId }) {
 
   
 
-  const handleNewAnnouncementSubmit = async (event) => {
+  const handleNewAnnouncementSubmit = async (event) => { // Function for submitting a new announcement
     
     event.preventDefault();
     const title = event.target.elements.title.value;
@@ -54,12 +56,15 @@ function Announcements({ setCurrentPage, userRole, userId }) {
     setNewAnnouncement({ title: '', content: '' });
 
     try {
-      const response = await fetch('/api/announcements', {
+      const response = await fetch('/api/announcements', {  // Send a POST request to the '/api/announcements' endpoint with the new announcement data in JSON format
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newAnnouncement),
         
       });
+
+      // If the response from the server indicates success, update the UI with a success message,
+    // add the new announcement to the list of announcements, and clear the input fields for a new announcement
 
       if (response.ok) {
         document.getElementById('submitMessage').innerHTML = 'Announcement posted successfully!';
@@ -67,10 +72,10 @@ function Announcements({ setCurrentPage, userRole, userId }) {
         setAnnouncements([...announcements, newAnnouncement]); 
         
         setNewAnnouncement({ title: '', content: '' });
-      } else {
+      } else { // If the response from the server indicates failure, throw an error with a custom message
         throw new Error('Error posting announcement');
       }
-    } catch (error) {
+    } catch (error) { // If an error occurs during the request or response handling, update the UI with an error message
       document.getElementById('submitMessage').innerHTML = error.message;
     }
     

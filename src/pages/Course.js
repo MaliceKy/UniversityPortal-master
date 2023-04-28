@@ -6,11 +6,11 @@ import UserData from '../data/login.json';
 import GradeData from '../data/grades.json';
 
 function Course({ setCurrentPage, userRole, userId }) {
-  const [courses, setCourses] = useState([]);
-  const [grades, setGrades] = useState([]);
+  const [courses, setCourses] = useState([]); // State for courses
+  const [grades, setGrades] = useState([]); // State for grades
 
   useEffect(() => {
-    if (userRole === 'student') {
+    if (userRole === 'student') { // Load courses and grades for student or teacher
       const enrolledCourses = CourseData.filter(course =>
         course.studentsEnrolledArray.includes(userId)
       );
@@ -23,16 +23,16 @@ function Course({ setCurrentPage, userRole, userId }) {
     }
   }, [userRole, userId]);
 
-  const getGradesForTeacher = (courseId) => {
+  const getGradesForTeacher = (courseId) => { // Get grades for a teacher's course
     return GradeData.filter(grade => grade.courseID === courseId);
   };
 
-  const getStudentName = (studentId) => {
+  const getStudentName = (studentId) => { // Get student name from ID
     const student = UserData.find(user => user.ID === studentId && user.role === 'student');
     return student ? student.name : 'Unknown';
   };
 
-  const getGrade = (courseId, teachersId) => {
+  const getGrade = (courseId, teachersId) => { // Get student's grade for a course or teacher's course grades
     if (userRole === 'student') {
       const grade = grades.find(grade => grade.courseID === courseId && grade.studentID === userId);
       if (grade) {
@@ -63,12 +63,12 @@ function Course({ setCurrentPage, userRole, userId }) {
     }
   };
 
-  const getTeacherName = (teacherId) => {
+  const getTeacherName = (teacherId) => { // Get teacher name from ID
     const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
     return teacher ? teacher.name : 'Unknown';
   };
 
-  const getTeacherEmail = (teacherId) => {
+  const getTeacherEmail = (teacherId) => { // Get teacher email from ID
     const teacher = UserData.find(user => user.ID === teacherId && user.role === 'teacher');
     return teacher ? teacher.email : 'Unknown';
   };

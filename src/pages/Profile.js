@@ -10,14 +10,14 @@ import CourseData from '../data/courses.json';
 import '../styles/Profile.css';
 
 function Profile({ currentUser, setCurrentPage, userRole}) {
-  const [courseName, setCourseName] = useState('');
+  const [courseName, setCourseName] = useState(''); // Set up a state variable to store the course name(s) of the user
 
-  const user = LoginData.find(user => user.ID === currentUser);
+  const user = LoginData.find(user => user.ID === currentUser); // Find the user based on the currentUser ID and get their enrolled courses
 
   useEffect(() => {
     const enrolledCourses = CourseData.filter(course => course.studentsEnrolledArray.includes(user.ID));
-    const courseNames = enrolledCourses.map(course => course.courseName);
-    setCourseName(courseNames.join(", "));
+    const courseNames = enrolledCourses.map(course => course.courseName); // Map over the enrolled courses and create an array of course names
+    setCourseName(courseNames.join(", ")); // Join the array of course names into a string separated by commas and set the state variable
   }, [currentUser, user]);
 
   return (

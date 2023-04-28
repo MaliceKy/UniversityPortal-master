@@ -14,21 +14,21 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
 
   useEffect(() => {
     // Get courses
-    if (userRole === 'student') {
+    if (userRole === 'student') { // Get courses the student is enrolled in
       const enrolledCourses = CourseData.filter((course) =>
         course.studentsEnrolledArray.includes(userId)
       );
-      setCourses(enrolledCourses);
+      setCourses(enrolledCourses); // Get assignments for the student's courses and sort by due date
       const userAssignments = AssignmentData.filter((assignment) =>
         assignment.courseID
       ).sort((a, b) => new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)); 
       setAssignments(userAssignments);
-    } else if (userRole === 'teacher') {
+    } else if (userRole === 'teacher') { // Get courses the teacher is teaching
       const teachingCourses = CourseData.filter(
         (course) => course.teachersID === userId
       );
-      setCourses(teachingCourses);
-      const teacherAssignments = AssignmentData.filter(
+      setCourses(teachingCourses); 
+      const teacherAssignments = AssignmentData.filter( // Get assignments created by the teacher and sort by due date
         (assignment) => assignment.teachersID === userId
       ).sort((a, b) => new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)); // its supposed to sort assignments by due date 
       setAssignments(teacherAssignments);
@@ -36,16 +36,16 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
     // Get assignments for user
   }, [userRole, userId]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    document.getElementById("not").style.display = "none";
+  const handleSubmit = (event) => { // Function to add a new assignment to the database
+    event.preventDefault(); // Hide the notification message
+    document.getElementById("not").style.display = "none"; // Show the submission confirmation message
     document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
   }
 
   //this is how we get the data that the teacher inputted to insert into the file
   const handleAddAssignment = async (event) => {
     event.preventDefault();
-    const newAssignment = {
+    const newAssignment = { // Get the form data and create a new assignment object
       assignmentName: event.target.assignmentName.value,
       teachersID: event.target.teachersID.value,
       assignmentDueDate: event.target.duedate.value,
@@ -55,31 +55,31 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
       courseID: event.target.course.value,
     };
   
-    try {
+    try { // Send a POST request to the server to add the new assignment to the database
       const response = await fetch('/api/assignments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newAssignment),
       });
   
-      if (response.ok) {
+      if (response.ok) { // If the request is successful, show a confirmation message and update the assignments state with the new assignment
         document.getElementById("submitMessage").innerHTML = "Assignment added successfully!";
         setAssignments([...assignments, newAssignment]);
       } else {
         throw new Error("Error adding assignment");
       }
-    } catch (error) {
+    } catch (error) {  // If there is an error, show an error message
       document.getElementById("submitMessage").innerHTML = error.message;
     }
   };
 
-  const handleDeleteAssignment = async (assignment) => {
+  const handleDeleteAssignment = async (assignment) => { // Function to delete an assignment from the database
     try {
-      const response = await fetch(`/api/assignments/${assignment.assignmentName}`, {
+      const response = await fetch(`/api/assignments/${assignment.assignmentName}`, { // Send a DELETE request to the server to delete the assignment
         method: 'DELETE',
       });
 
-      if (response.ok) {
+      if (response.ok) { // If the request is successful, update the assignments state with the new data returned by the server
         const responseData = await response.json();
         setAssignments(responseData.data);
       } else {
