@@ -6,6 +6,7 @@ import CourseData from '../data/courses.json';
 
 function Accessibility({ userId, userRole, setCurrentPage }) {
 
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -41,7 +42,9 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
     }
   }
 
-  function handleDeleteCourse() {
+  
+  
+  async function handleDeleteCourse() {
     const courseIdToDelete = document.getElementById('courseIdToDelete').value;
     const courseIndexToDelete = CourseData.findIndex(course => course.courseID === courseIdToDelete);
   
@@ -49,27 +52,39 @@ function Accessibility({ userId, userRole, setCurrentPage }) {
       CourseData.splice(courseIndexToDelete, 1);
       alert(`Course with ID ${courseIdToDelete} has been deleted.`);
       localStorage.setItem('CourseData', JSON.stringify(CourseData));
+  
+      // Fetch the original courses.json file from the server
+      const response = await fetch('http://localhost:3001/api/courses');
+      const coursesJson = await response.json();
+  
+      // Update the coursesJson array with the removed course
+      const updatedCoursesJson = coursesJson.filter(course => course.courseID !== courseIdToDelete);
+  
+      // Send a PUT request to update the courses.json file on the server
+      try {
+        const response = await fetch('http://localhost:3001/api/courses', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(updatedCoursesJson),
+        });
       
-      // Update the courses.json file on the server
-      const updatedCourseData = JSON.stringify(CourseData);
-      fetch('http://localhost:3001/api/courses', {
-        method: 'DELETE',
-        body: updatedCourseData,
-        headers: {
-          'Content-Type': 'application/json'
+        if (response.ok) {
+          alert('Course deleted successfully');
+        } else {
+          alert('Error deleting course');
         }
-      }).then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to update courses.json');
-        }
-      }).catch(error => {
-        console.error(error);
-        alert('Failed to update courses.json');
-      });
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Error deleting course');
+      }
     } else {
       alert(`No course with ID ${courseIdToDelete} found.`);
     }
   }
+
+
 
 
 

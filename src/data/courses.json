@@ -80,17 +80,5 @@
     "classDays": "monday,friday",
     "classTime": "12:30-1;30",
     "studentsEnrolledArray": []
-  },
-  {
-    "courseName": "idk",
-    "courseID": "234",
-    "teachersID": 123,
-    "teacher": "Ding",
-    "description": "sdfsdfsd",
-    "classRoom": "123",
-    "classDays": "monday,friday",
-    "classTime": "12:30-1;30",
-    "studentsEnrolledArray": []
   }
-  
 ]
