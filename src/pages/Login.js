@@ -1,3 +1,6 @@
+/* @param {function} onLoginSuccess - A function to be called when the user successfully logs in.
+@returns {JSX.Element} - Returns the login form JSX.
+*/
 import { useState } from 'react';
 import "../styles/Login.css";
 
