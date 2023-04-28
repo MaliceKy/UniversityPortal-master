@@ -3,13 +3,18 @@
   font-weight: bold;
   color: #03770d;
   margin-bottom: 1rem;
+  overflow-y: auto;
 }
 
 .coursework-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 1rem;
+  gap: .4rem;
+  overflow-y: auto;
+  overflow : scroll;
+  height: 500px;
+  
 }
 
 .coursework-card {
@@ -19,10 +24,10 @@
   border-radius: 10px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  height: 410px;
+  width: 250px;
   margin-bottom: 2rem;
   position: relative;
+  overflow-y: auto;
 }
 
 .coursework-card h3 {
@@ -36,7 +41,7 @@
 
 .assignments-container {
   overflow-y: auto;
-  max-height: 700px;
+  max-height: 300px;
 }
 
 .assignment {
@@ -90,7 +95,6 @@
 .add-assignment-btn:hover {
   background-color: #3e8e41;
 }
-
 #studentSubmit{
   background-color: #4CAF50;
   color: white;
@@ -101,9 +105,4 @@
   font-size: 16px;
   margin-top: 10px;
   width: 100%;
-}
-
-
-#not {
-  margin-left: 40px; 
 }

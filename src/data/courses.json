@@ -6,9 +6,9 @@
     "teachersID": 126,
     "description": "How to cast spells that are used for specific purposes such as levitation, cleaning, and summoning.",
     "studentsEnrolledArray": [
+      123,
       124,
-      125,
-      126
+      125
     ],
     "classRoom": 189,
     "classDays": "Monday, Wednesday, Friday",
@@ -22,8 +22,7 @@
     "description": "A class that teaches students how to interpret omens, read tea leaves, and predict the future.",
     "studentsEnrolledArray": [
       125,
-      123,
-      126
+      123
     ],
     "classRoom": 465,
     "classDays": "Monday, Wednesday, Friday",
@@ -37,8 +36,7 @@
     "description": "A class that introduces students to a wide variety of magical creatures and teaches them how to care for them.",
     "studentsEnrolledArray": [
       124,
-      125,
-      126
+      123
     ],
     "classRoom": 103,
     "classDays": "Monday, Wednesday, Friday",
@@ -53,7 +51,7 @@
     "studentsEnrolledArray": [
       124,
       125,
-      126
+      123
     ],
     "classRoom": 398,
     "classDays": "Tuesday, Thursday",
@@ -69,7 +67,7 @@
     "classDays": "Monday, Friday",
     "classTime": "1pm - 3pm",
     "studentsEnrolledArray": [
-      126
+      124
     ]
   },
   {

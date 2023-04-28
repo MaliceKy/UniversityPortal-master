@@ -1,6 +1,4 @@
-/*gets assignment for user by checking what classes they are in using the userid and studentenrolledlist or teacher id from courses.json
-and displays the, students have option to submit assignments teafhers have option to creat assignment
-*/
+
 import { useState, useEffect } from 'react';
 import React from 'react';
 import '../styles/CourseWork.css';
@@ -23,7 +21,7 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
       setCourses(enrolledCourses);
       const userAssignments = AssignmentData.filter((assignment) =>
         assignment.courseID
-      );
+      ).sort((a, b) => new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)); 
       setAssignments(userAssignments);
     } else if (userRole === 'teacher') {
       const teachingCourses = CourseData.filter(
@@ -32,7 +30,7 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
       setCourses(teachingCourses);
       const teacherAssignments = AssignmentData.filter(
         (assignment) => assignment.teachersID === userId
-      );
+      ).sort((a, b) => new Date(a.assignmentDueDate) - new Date(b.assignmentDueDate)); // its supposed to sort assignments by due date 
       setAssignments(teacherAssignments);
     }
     // Get assignments for user
@@ -44,6 +42,7 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
     document.getElementById("submitMessage").innerHTML = "Thank you for your submission!";
   }
 
+  //this is how we get the data that the teacher inputted to insert into the file
   const handleAddAssignment = async (event) => {
     event.preventDefault();
     const newAssignment = {
@@ -94,12 +93,11 @@ function CourseWork({ userId, userRole, setCurrentPage, currentUser}) {
   return (
     <div>
       <NavigationButtons userRole={userRole} setCurrentPage={setCurrentPage} />
-      <div className="coursework-list">
+      <div className="coursework-list" id = "test">
         {courses.map((courses) => {
           // Get assignments for this course and sort by due date
           const courseAssignments = assignments
-            .filter((assignment) => assignment.courseID === courses.courseID)
-            
+          .filter(assignment => assignment.courseID === courses.courseID);
 
             return (
               <div key={courses.courseID} className="coursework-card">
